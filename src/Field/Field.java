@@ -41,31 +41,30 @@ public class Field {
         return field[row][col].isAMine();
     }
 
-    public String getRevealedBoard() {
+    public String getPlayerField() {
+        String playerField = "";
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                    playerField += field[x][y].toString();
+            }
+            playerField += "\n";
+        }
+        return playerField;
+    }
+
+    public void revealSquare(int row, int col){
+        field[row][col].setRevealed();
+    }
+
+    public String getRevealedField() {
         String revealedBoard = "";
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
-                    revealedBoard += field[x][y].toString();
+                this.revealSquare(x,y);
+                revealedBoard += field[x][y].toString();
             }
             revealedBoard += "\n";
         }
         return revealedBoard;
-    }
-
-    public String revealSquare(int row, int col) {
-        return field[row][col].toString();
-    }
-
-    public String getPlayerBoard() {
-        String playerBoard = "";
-        for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                if(!(field[x][y].isRevealed())) {
-                    playerBoard += ".";
-                }
-            }
-            playerBoard += "\n";
-        }
-        return playerBoard;
     }
 }

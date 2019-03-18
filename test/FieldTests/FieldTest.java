@@ -14,9 +14,10 @@ class FieldTest {
     }
 
     @Test
-    public void canPlaceAMineAndRevealTheBoardWithHints() {
+    public void canPlaceAMineAndRevealTheBoardWithAllHints() {
         Field field = new Field(4,5);
         field.placeMineSquare(0,0);
+        String actualField = field.getRevealedField();
 
         String expectedField =
                 "*0000\n" +
@@ -24,28 +25,23 @@ class FieldTest {
                 "00000\n" +
                 "00000\n";
 
-        assertEquals(expectedField, field.getRevealedBoard());
+        assertEquals(expectedField, actualField);
     }
 
     @Test
-    public void ifRevealMethodIsCalledOnASquareItsStringValueIsReturned() {
+    public void canRevealOneSquareAndDisplayFieldForUser() {
         Field field = new Field(4,5);
-        assertEquals("0", field.revealSquare(0,0));
-    }
-
-    @Test
-    public void canPlaceAMineAndSelectThatSquareToRevealThePlayersBoard() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,0);
-        field.revealSquare(0,0);
+        field.placeMineSquare(0,1);
+        field.revealSquare(0,1);
+        String actualField = field.getPlayerField();
 
         String expectedField =
-                        "*....\n" +
+                        ".*...\n" +
                         ".....\n" +
                         ".....\n" +
                         ".....\n";
 
-        assertEquals(expectedField, field.getPlayerBoard());
+        assertEquals(expectedField, actualField);
     }
 
     @Test

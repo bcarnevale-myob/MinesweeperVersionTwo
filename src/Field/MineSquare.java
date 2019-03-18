@@ -3,19 +3,27 @@ package Field;
 public class MineSquare implements Square {
 
     private String symbol = "*";
+    private boolean isRevealed = false;
 
     @Override
     public boolean isAMine() {
         return true;
     }
 
-    @Override
     public boolean isRevealed() {
-        return false;
+        return isRevealed;
+    }
+
+    public void setRevealed() {
+        isRevealed = true;
     }
 
     public String toString() {
-        return symbol;
+        if(this.isRevealed()){
+            return String.valueOf(symbol);
+        } else {
+            return ".";
+        }
     }
 
 }
