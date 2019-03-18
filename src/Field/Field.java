@@ -52,19 +52,4 @@ public class Field {
         return revealedBoard;
     }
 
-   /* public String getPlayerBoard() {
-        String playerBoard = "";
-        for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                if(revealSquare(x,y)) {
-                    playerBoard += field[x][y].toString();
-                } else {
-                    playerBoard += ".";
-                }
-            }
-            playerBoard += "\n";
-        }
-        return playerBoard;
-    }*/
-   
 }
