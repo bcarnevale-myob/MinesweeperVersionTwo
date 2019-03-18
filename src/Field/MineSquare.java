@@ -9,6 +9,11 @@ public class MineSquare implements Square {
         return true;
     }
 
+    @Override
+    public boolean isRevealed() {
+        return false;
+    }
+
     public String toString() {
         return symbol;
     }

@@ -9,6 +9,11 @@ public class SafeSquare implements Square {
         return false;
     }
 
+    @Override
+    public boolean isRevealed() {
+        return false;
+    }
+
     public String toString() {
         return String.valueOf(hintCount);
     }
