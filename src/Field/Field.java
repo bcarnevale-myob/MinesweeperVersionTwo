@@ -2,7 +2,6 @@ package Field;
 
 public class Field {
 
-
     private final Square[][] field;
 
     public Field(int row, int col) {
@@ -26,19 +25,46 @@ public class Field {
         return isEmpty;
     }
 
-    public int getWidth() {
-        return field.length;
-    }
-
     public int getHeight() {
-        return field[0].length;
+        return this.field.length;
     }
 
-    public void placeMineSquareAt(int row, int col) {
+    public int getWidth() {
+        return this.field[0].length;
+    }
+
+    public void placeMineSquare(int row, int col) {
         field[row][col] = new MineSquare();
     }
 
-    public Square squareAtPosition(int row, int col) {
+    public Square getSquareAt(int row, int col) {
         return field[row][col];
     }
+
+    public String getRevealedBoard() {
+        String revealedBoard = "";
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                    revealedBoard += field[x][y].toString();
+            }
+            revealedBoard += "\n";
+        }
+        return revealedBoard;
+    }
+
+   /* public String getPlayerBoard() {
+        String playerBoard = "";
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                if(revealSquare(x,y)) {
+                    playerBoard += field[x][y].toString();
+                } else {
+                    playerBoard += ".";
+                }
+            }
+            playerBoard += "\n";
+        }
+        return playerBoard;
+    }*/
+   
 }
