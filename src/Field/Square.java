@@ -1,4 +1,6 @@
 package Field;
 
-public class Square {
+public interface Square {
+
+
 }
