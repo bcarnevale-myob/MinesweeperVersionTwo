@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87ecb68a-b4b1-485b-a037-7139f4e42d2c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Field/SafeSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Field.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/MineSquare.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/MineSquare.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/minesweeper_v2/FieldTests/FieldTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/minesweeper_v2/FieldTests/FieldTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Field/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Field/MineSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/MineSquare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Field/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/FieldTests/FieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FieldTests/FieldTest.java" afterDir="false" />
     </list>
@@ -19,29 +25,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Field/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="630">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
-                <element signature="e#73#74#0" expanded="true" />
-                <element signature="e#117#118#0" expanded="true" />
-                <element signature="e#71#72#0" expanded="true" />
-                <element signature="e#97#98#0" expanded="true" />
                 <element signature="e#248#249#0" expanded="true" />
                 <element signature="e#268#269#0" expanded="true" />
                 <element signature="e#313#314#0" expanded="true" />
                 <element signature="e#340#341#0" expanded="true" />
                 <element signature="e#406#407#0" expanded="true" />
                 <element signature="e#448#449#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+                <element signature="e#810#811#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Field/MineSquare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#103#104#0" expanded="true" />
+                <element signature="e#131#132#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,16 +58,29 @@
         <entry file="file://$PROJECT_DIR$/src/Field/Square.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Field/SafeSquare.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#103#104#0" expanded="true" />
+                <element signature="e#131#132#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/FieldTests/FieldTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="301">
-              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+              <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,9 +112,10 @@
         <option value="$PROJECT_DIR$/src/FieldTest.java" />
         <option value="$PROJECT_DIR$/test/test/FieldTest.java" />
         <option value="$PROJECT_DIR$/src/Field/Square.java" />
-        <option value="$PROJECT_DIR$/test/FieldTests/FieldTest.java" />
-        <option value="$PROJECT_DIR$/src/Field/Field.java" />
         <option value="$PROJECT_DIR$/src/Field/MineSquare.java" />
+        <option value="$PROJECT_DIR$/src/Field/SafeSquare.java" />
+        <option value="$PROJECT_DIR$/src/Field/Field.java" />
+        <option value="$PROJECT_DIR$/test/FieldTests/FieldTest.java" />
       </list>
     </option>
   </component>
@@ -141,7 +163,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552875200797" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552876200328" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -202,13 +224,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="minesweeper_v2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FieldTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="FieldTests" />
+      <option name="MAIN_CLASS_NAME" value="FieldTests.FieldTest" />
+      <option name="METHOD_NAME" value="canCheckIfCurrentSquareIsNotAMineSquare" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.FieldTest" />
+      <item itemvalue="JUnit.FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.FieldTest" />
+        <item itemvalue="JUnit.FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" />
       </list>
     </recent_temporary>
   </component>
@@ -222,23 +262,48 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552868041882</updated>
-      <workItem from="1552868046020" duration="2832000" />
+      <workItem from="1552868046020" duration="4128000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FieldTest - 2019.03.18 at 11h 48m 41s.xml">
+    <history-entry file="FieldTest_canCheckIfCurrentSquareIsNotAMineSquare - 2019.03.18 at 13h 22m 47s.xml">
+      <configuration name="FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest_canCheckIfCurrentSquareIsNotAMineSquare - 2019.03.18 at 13h 25m 13s.xml">
+      <configuration name="FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest_canCheckIfCurrentSquareIsNotAMineSquare - 2019.03.18 at 13h 26m 18s.xml">
+      <configuration name="FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest_canCheckIfCurrentSquareIsNotAMineSquare - 2019.03.18 at 13h 27m 05s.xml">
+      <configuration name="FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest_canCheckIfCurrentSquareIsNotAMineSquare - 2019.03.18 at 13h 27m 08s.xml">
+      <configuration name="FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest - 2019.03.18 at 13h 27m 57s.xml">
       <configuration name="FieldTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FieldTest - 2019.03.18 at 13h 06m 14s.xml">
+    <history-entry file="FieldTest - 2019.03.18 at 13h 28m 29s.xml">
+      <configuration name="FieldTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest - 2019.03.18 at 13h 29m 36s.xml">
+      <configuration name="FieldTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest_canCheckIfCurrentSquareIsNotAMineSquare - 2019.03.18 at 13h 29m 55s.xml">
+      <configuration name="FieldTest.canCheckIfCurrentSquareIsNotAMineSquare" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="FieldTest - 2019.03.18 at 13h 30m 02s.xml">
       <configuration name="FieldTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2832000" />
+    <option name="totallyTimeSpent" value="4128000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -344,43 +409,56 @@
     <entry file="file://$PROJECT_DIR$/src/Field/Square.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/FieldTests/FieldTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Field/MineSquare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#103#104#0" expanded="true" />
+            <element signature="e#131#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Field/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="630">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
-            <element signature="e#73#74#0" expanded="true" />
-            <element signature="e#117#118#0" expanded="true" />
-            <element signature="e#71#72#0" expanded="true" />
-            <element signature="e#97#98#0" expanded="true" />
             <element signature="e#248#249#0" expanded="true" />
             <element signature="e#268#269#0" expanded="true" />
             <element signature="e#313#314#0" expanded="true" />
             <element signature="e#340#341#0" expanded="true" />
             <element signature="e#406#407#0" expanded="true" />
             <element signature="e#448#449#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#810#811#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Field/MineSquare.java">
+    <entry file="file://$PROJECT_DIR$/src/Field/SafeSquare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#103#104#0" expanded="true" />
+            <element signature="e#131#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/FieldTests/FieldTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

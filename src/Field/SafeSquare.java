@@ -1,10 +1,9 @@
 package Field;
 
-public class MineSquare implements Square {
+public class SafeSquare implements Square {
 
     @Override
     public boolean isAMine() {
-        return true;
+        return false;
     }
-
 }

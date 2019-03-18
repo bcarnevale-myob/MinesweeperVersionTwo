@@ -26,4 +26,18 @@ class FieldTest {
         assertFalse(field.isEmpty());
     }
 
+    @Test
+    public void canCheckIfCurrentSquareIsAMineSquare() {
+        Field field = new Field(4,5);
+        field.placeMineSquareAt(0,1);
+        assertTrue(field.squareAtPosition(0,1).isAMine());
+    }
+
+    @Test
+    public void canCheckIfCurrentSquareIsNotAMineSquare() {
+        Field field = new Field(4,5);
+        field.placeMineSquareAt(0,1);
+        assertFalse(field.squareAtPosition(1,1).isAMine());
+    }
+
 }

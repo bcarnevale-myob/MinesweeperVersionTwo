@@ -7,6 +7,11 @@ public class Field {
 
     public Field(int row, int col) {
         this.field = new Square[row][col];
+        for(int x = 0; x < row; x++) {
+            for(int y = 0; y < col; y++) {
+                field[x][y] = new SafeSquare();
+            }
+        }
     }
 
     public boolean isEmpty() {
@@ -31,5 +36,9 @@ public class Field {
 
     public void placeMineSquareAt(int row, int col) {
         field[row][col] = new MineSquare();
+    }
+
+    public Square squareAtPosition(int row, int col) {
+        return field[row][col];
     }
 }
