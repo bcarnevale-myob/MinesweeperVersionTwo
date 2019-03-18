@@ -37,8 +37,8 @@ public class Field {
         field[row][col] = new MineSquare();
     }
 
-    public Square getSquareAt(int row, int col) {
-        return field[row][col];
+    public boolean getSquareTypeAt(int row, int col) {
+        return field[row][col].isAMine();
     }
 
     public String getRevealedBoard() {
@@ -52,4 +52,20 @@ public class Field {
         return revealedBoard;
     }
 
+    public String revealSquare(int row, int col) {
+        return field[row][col].toString();
+    }
+
+    public String getPlayerBoard() {
+        String playerBoard = "";
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                if(!(field[x][y].isRevealed())) {
+                    playerBoard += ".";
+                }
+            }
+            playerBoard += "\n";
+        }
+        return playerBoard;
+    }
 }
