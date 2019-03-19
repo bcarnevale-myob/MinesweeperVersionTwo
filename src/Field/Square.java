@@ -1,4 +1,8 @@
 package Field;
 
-public class Square {
+public interface Square {
+
+    boolean isAMine();
+
+    boolean isRevealed();
 }
