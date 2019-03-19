@@ -49,7 +49,7 @@ class FieldTest {
         Field field = new Field(4,5);
         field.placeMineSquare(0,1);
 
-        assertTrue(field.getSquareTypeAt(0,1));
+        assertTrue(field.squareIsAMine(0,1));
     }
 
     @Test
@@ -57,7 +57,7 @@ class FieldTest {
         Field field = new Field(4,5);
         field.placeMineSquare(0,1);
 
-        assertFalse(field.getSquareTypeAt(1,1));
+        assertFalse(field.squareIsAMine(1,1));
     }
 
 }

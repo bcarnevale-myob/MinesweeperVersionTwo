@@ -37,12 +37,17 @@ public class Field {
         field[row][col] = new MineSquare();
     }
 
-    public boolean getSquareTypeAt(int row, int col) {
+    public boolean squareIsAMine(int row, int col) {
         return field[row][col].isAMine();
+    }
+
+    public void revealSquare(int row, int col){
+        field[row][col].setRevealed();
     }
 
     public String getPlayerField() {
         String playerField = "";
+        addHintsToBoard();
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
                     playerField += field[x][y].toString();
@@ -52,12 +57,9 @@ public class Field {
         return playerField;
     }
 
-    public void revealSquare(int row, int col){
-        field[row][col].setRevealed();
-    }
-
     public String getRevealedField() {
         String revealedBoard = "";
+        addHintsToBoard();
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
                 this.revealSquare(x,y);
@@ -67,4 +69,33 @@ public class Field {
         }
         return revealedBoard;
     }
+
+    public void addHintsToBoard() {
+        for(int x = 0; x < this.getHeight(); x++) {
+            for (int y = 0; y < this.getWidth(); y++) {
+                if(squareIsAMine(x,y)) {
+                    increaseHintCountAround(x,y);
+                }
+            }
+        }
+    }
+
+    public void increaseHintCountAround(int row, int col) {
+        for(int x = row - 1; x <= row + 1; x++) {
+            if(!(isOutOfBounds(x, this.getHeight())))
+            for(int y = col - 1; y <= col + 1; y++) {
+                if(!(isOutOfBounds(y, this.getWidth()))) {
+                    field[x][y].increaseHintCount();
+                }
+            }
+        }
+    }
+
+    private boolean isOutOfBounds(int position, int maxValue) {
+        if((position < 0) || (position >= maxValue)) {
+            return true;
+        }
+        return false;
+    }
+
 }
