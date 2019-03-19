@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87ecb68a-b4b1-485b-a037-7139f4e42d2c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/FieldTests/HintTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Field.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/MineSquare.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/MineSquare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/SafeSquare.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/SafeSquare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/minesweeper_v2/Field/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/minesweeper_v2/FieldTests/FieldTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/minesweeper_v2/FieldTests/FieldTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Field.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/MineSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/MineSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/SafeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/SafeSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Field/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Field/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FieldTests/FieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FieldTests/FieldTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="87ecb68a-b4b1-485b-a037-7139f4e42d2c" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Field/Field.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="74" column="58" lean-forward="true" selection-start-line="74" selection-start-column="58" selection-end-line="74" selection-end-column="58" />
+            <state relative-caret-position="-449">
+              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
               <folding>
                 <element signature="e#675#676#0" expanded="true" />
                 <element signature="e#714#715#0" expanded="true" />
@@ -100,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/FieldTests/HintTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-95">
+            <state relative-caret-position="90">
               <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -199,7 +186,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553035955297" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553035990178" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -345,24 +332,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HintTest_canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.19 at 13h 52m 05s.xml">
-      <configuration name="HintTest.canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HintTest_canPlaceTwoMinesAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.19 at 13h 53m 25s.xml">
-      <configuration name="HintTest.canPlaceTwoMinesAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HintTest_canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.19 at 15h 46m 20s.xml">
-      <configuration name="HintTest.canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HintTest_canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 27m 28s.xml">
-      <configuration name="HintTest.canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HintTest_canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 37m 21s.xml">
-      <configuration name="HintTest.canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HintTest_canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 37m 40s.xml">
-      <configuration name="HintTest.canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HintTest_canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 42m 39s.xml">
       <configuration name="HintTest.canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
     </history-entry>
@@ -375,13 +344,30 @@
     <history-entry file="HintTest_canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 46m 13s.xml">
       <configuration name="HintTest.canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="HintTest_canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 49m 44s.xml">
+      <configuration name="HintTest.canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HintTest_canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 50m 19s.xml">
+      <configuration name="HintTest.canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HintTest_canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 52m 19s.xml">
+      <configuration name="HintTest.canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HintTest_canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 52m 25s.xml">
+      <configuration name="HintTest.canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HintTest_canPlaceTwoMinesAndHintCountOfAdjacentSquaresIncreasesByOne - 2019.03.20 at 09h 52m 31s.xml">
+      <configuration name="HintTest.canPlaceTwoMinesAndHintCountOfAdjacentSquaresIncreasesByOne" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HintTest - 2019.03.20 at 09h 52m 36s.xml">
+      <configuration name="HintTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27262000" />
+    <option name="totallyTimeSpent" value="27722000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -474,10 +460,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/FieldTests/HintTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Field/Field.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="74" column="58" lean-forward="true" selection-start-line="74" selection-start-column="58" selection-end-line="74" selection-end-column="58" />
+        <state relative-caret-position="-449">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
           <folding>
             <element signature="e#675#676#0" expanded="true" />
             <element signature="e#714#715#0" expanded="true" />
@@ -489,16 +485,6 @@
             <element signature="e#994#995#0" expanded="true" />
             <element signature="e#1047#1048#0" expanded="true" />
             <element signature="e#1092#1093#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/FieldTests/HintTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
