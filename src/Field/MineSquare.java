@@ -9,6 +9,11 @@ public class MineSquare extends Square {
         return true;
     }
 
+    @Override
+    public boolean isRevealed() {
+        return false;
+    }
+
     public String toString() {
         if(this.isRevealed()){
             return stringValue;
