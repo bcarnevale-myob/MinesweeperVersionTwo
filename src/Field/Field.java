@@ -13,20 +13,20 @@ public class Field {
         }
     }
 
-    public Field(int row, int col, MineRandom mockRandom) {
+    public Field(int row, int col, MineRandom randomNumberGenerator) {
         this.field = new Square[row][col];
-        this.setRandomMinePositions(mockRandom);
+        this.setRandomMinePositions(randomNumberGenerator);
     }
 
-    private void setRandomMinePositions(MineRandom randomInstance) {
+    private void setRandomMinePositions(MineRandom randomNumberGenerator) {
         int row;
         int col;
 
-        int numberOfMinesToPlace = randomInstance.nextInt(numberOfSquaresInTheField());
+        int numberOfMinesToPlace = randomNumberGenerator.nextInt(numberOfSquares());
 
         for(int i = 1; i <= numberOfMinesToPlace; i++) {
-            row = randomInstance.nextInt(this.getHeight());
-            col = randomInstance.nextInt(this.getWidth());
+            row = randomNumberGenerator.nextInt(this.getHeight());
+            col = randomNumberGenerator.nextInt(this.getWidth());
             this.placeMineSquare(row, col);
         }
     }
@@ -79,7 +79,7 @@ public class Field {
         return this.field[0].length;
     }
 
-    private int numberOfSquaresInTheField() {
+    private int numberOfSquares() {
         return this.getHeight()*this.getWidth();
     }
 

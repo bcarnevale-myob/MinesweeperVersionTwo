@@ -13,4 +13,12 @@ public class RandomiseMines {
         assertFalse(field.isEmpty());
     }
 
+    @Test
+    public void ifAFieldIsCreatedWithRandomMinePlacementOfZeroZeroThenZeroZeroShouldBeAMineSquare() {
+        Field field = new Field(4,5, new MockMineRandom(1, 0, 0));
+
+        assertTrue(field.squareIsAMine(0,0));
+
+    }
+
 }
