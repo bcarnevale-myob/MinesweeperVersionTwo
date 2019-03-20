@@ -15,6 +15,11 @@ public class Field {
 
     public Field(int row, int col, MineRandom randomNumberGenerator) {
         this.field = new Square[row][col];
+        for(int x = 0; x < row; x++) {
+            for(int y = 0; y < col; y++) {
+                field[x][y] = new SafeSquare();
+            }
+        }
         this.setRandomMinePositions(randomNumberGenerator);
     }
 
