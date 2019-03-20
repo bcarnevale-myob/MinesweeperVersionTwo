@@ -14,14 +14,25 @@ class FieldTest {
     }
 
     @Test
+    public void canCreateAFieldOfDifferentSizes() {
+        Field field = new Field(3,4);
+
+        int fieldHeight = field.getHeight();
+        int fieldWidth = field.getWidth();
+
+        assertEquals(3, fieldHeight);
+        assertEquals(4, fieldWidth);
+    }
+
+    @Test
     public void canPlaceAMineAndRevealTheBoardWithAllHints() {
         Field field = new Field(4,5);
         field.placeMineSquare(0,0);
         String actualField = field.getRevealedField();
 
         String expectedField =
-                "*0000\n" +
-                "00000\n" +
+                "*1000\n" +
+                "11000\n" +
                 "00000\n" +
                 "00000\n";
 

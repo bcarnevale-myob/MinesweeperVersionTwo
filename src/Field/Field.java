@@ -1,5 +1,7 @@
 package Field;
 
+import java.util.Random;
+
 public class Field {
 
     private final Square[][] field;
@@ -13,10 +15,64 @@ public class Field {
         }
     }
 
+    public Field(int row, int col, boolean randomise) {
+        this.field = new Square[row][col];
+        for(int x = 0; x < row; x++) {
+            for(int y = 0; y < col; y++) {
+                setRandomMinePositions();
+                if(!(squareIsAMine(x,y))) {
+                    field[x][y] = new SafeSquare();
+                }
+            }
+        }
+    }
+
+    private void setRandomMinePositions() {
+        int row;
+        int col;
+        Random randomNumberGenerator = new Random();
+
+        int numberOfMinesToPlace = randomNumberGenerator.nextInt(this.getHeight()*this.getWidth());
+
+        for(int i = 1; i <= numberOfMinesToPlace; i++) {
+            row = randomNumberGenerator.nextInt(this.getHeight());
+            col = randomNumberGenerator.nextInt(this.getWidth());
+            this.placeMineSquare(row, col);
+        }
+    }
+
+    public String getPlayerField() {
+        String playerField = "";
+        addHintsToField();
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                if((squareIsAMine(x,y)) && (field[x][y].isRevealed())) {
+                    revealAllMines();
+                }
+                playerField += field[x][y].toString();
+            }
+            playerField += "\n";
+        }
+        return playerField;
+    }
+
+    public String getRevealedField() {
+        String revealedField = "";
+        addHintsToField();
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                this.revealSquare(x,y);
+                revealedField += field[x][y].toString();
+            }
+            revealedField += "\n";
+        }
+        return revealedField;
+    }
+
     public boolean isEmpty() {
         boolean isEmpty = true;
-        for(int x = 0; x < field.length; x++) {
-            for(int y = 0; y < field[x].length; y++) {
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
                 if(field[x][y] instanceof MineSquare) {
                     isEmpty = false;
                 }
@@ -45,32 +101,17 @@ public class Field {
         field[row][col].setRevealed();
     }
 
-    public String getPlayerField() {
-        String playerField = "";
-        addHintsToBoard();
+    private void revealAllMines() {
         for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                    playerField += field[x][y].toString();
+            for (int y = 0; y < this.getWidth(); y++) {
+                if(squareIsAMine(x,y)) {
+                    revealSquare(x,y);
+                }
             }
-            playerField += "\n";
         }
-        return playerField;
     }
 
-    public String getRevealedField() {
-        String revealedBoard = "";
-        addHintsToBoard();
-        for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                this.revealSquare(x,y);
-                revealedBoard += field[x][y].toString();
-            }
-            revealedBoard += "\n";
-        }
-        return revealedBoard;
-    }
-
-    public void addHintsToBoard() {
+    private void addHintsToField() {
         for(int x = 0; x < this.getHeight(); x++) {
             for (int y = 0; y < this.getWidth(); y++) {
                 if(squareIsAMine(x,y)) {
@@ -80,7 +121,7 @@ public class Field {
         }
     }
 
-    public void increaseHintCountAround(int row, int col) {
+    private void increaseHintCountAround(int row, int col) {
         for(int x = row - 1; x <= row + 1; x++) {
             if(!(isOutOfBounds(x, this.getHeight())))
             for(int y = col - 1; y <= col + 1; y++) {
