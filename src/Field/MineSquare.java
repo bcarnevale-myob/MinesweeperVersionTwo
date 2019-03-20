@@ -1,21 +1,19 @@
 package Field;
 
-public class MineSquare implements Square {
+public class MineSquare extends Square {
 
-    private String symbol = "*";
+    private String token = "*";
 
-    @Override
     public boolean isAMine() {
         return true;
     }
 
-    @Override
-    public boolean isRevealed() {
-        return false;
-    }
-
     public String toString() {
-        return symbol;
+        if(this.isRevealed()){
+            return token;
+        } else {
+            return ".";
+        }
     }
 
 }

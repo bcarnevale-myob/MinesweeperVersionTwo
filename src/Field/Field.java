@@ -13,10 +13,56 @@ public class Field {
         }
     }
 
+    public Field(int row, int col, MineRandom mockRandom) {
+        this.field = new Square[row][col];
+        this.setRandomMinePositions(mockRandom);
+    }
+
+    private void setRandomMinePositions(MineRandom randomInstance) {
+        int row;
+        int col;
+
+        int numberOfMinesToPlace = randomInstance.nextInt(numberOfSquaresInTheField());
+
+        for(int i = 1; i <= numberOfMinesToPlace; i++) {
+            row = randomInstance.nextInt(this.getHeight());
+            col = randomInstance.nextInt(this.getWidth());
+            this.placeMineSquare(row, col);
+        }
+    }
+
+    public String getPlayerField() {
+        String playerField = "";
+        addHintsToField();
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                if((squareIsAMine(x,y)) && (field[x][y].isRevealed())) {
+                    revealAllMines();
+                }
+                playerField += field[x][y].toString();
+            }
+            playerField += "\n";
+        }
+        return playerField;
+    }
+
+    public String getRevealedField() {
+        String revealedField = "";
+        addHintsToField();
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
+                this.revealSquare(x,y);
+                revealedField += field[x][y].toString();
+            }
+            revealedField += "\n";
+        }
+        return revealedField;
+    }
+
     public boolean isEmpty() {
         boolean isEmpty = true;
-        for(int x = 0; x < field.length; x++) {
-            for(int y = 0; y < field[x].length; y++) {
+        for(int x = 0; x < this.getHeight(); x++) {
+            for(int y = 0; y < this.getWidth(); y++) {
                 if(field[x][y] instanceof MineSquare) {
                     isEmpty = false;
                 }
@@ -33,39 +79,58 @@ public class Field {
         return this.field[0].length;
     }
 
+    private int numberOfSquaresInTheField() {
+        return this.getHeight()*this.getWidth();
+    }
+
     public void placeMineSquare(int row, int col) {
         field[row][col] = new MineSquare();
     }
 
-    public boolean getSquareTypeAt(int row, int col) {
+    public boolean squareIsAMine(int row, int col) {
         return field[row][col].isAMine();
     }
 
-    public String getRevealedBoard() {
-        String revealedBoard = "";
-        for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                    revealedBoard += field[x][y].toString();
-            }
-            revealedBoard += "\n";
-        }
-        return revealedBoard;
+    public void revealSquare(int row, int col){
+        field[row][col].reveal();
     }
 
-    public String revealSquare(int row, int col) {
-        return field[row][col].toString();
-    }
-
-    public String getPlayerBoard() {
-        String playerBoard = "";
+    private void revealAllMines() {
         for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                if(!(field[x][y].isRevealed())) {
-                    playerBoard += ".";
+            for (int y = 0; y < this.getWidth(); y++) {
+                if(squareIsAMine(x,y)) {
+                    revealSquare(x,y);
                 }
             }
-            playerBoard += "\n";
         }
-        return playerBoard;
     }
+
+    private void addHintsToField() {
+        for(int x = 0; x < this.getHeight(); x++) {
+            for (int y = 0; y < this.getWidth(); y++) {
+                if(squareIsAMine(x,y)) {
+                    increaseHintCountAround(x,y);
+                }
+            }
+        }
+    }
+
+    private void increaseHintCountAround(int row, int col) {
+        for(int x = row - 1; x <= row + 1; x++) {
+            if(!(isOutOfBounds(x, this.getHeight())))
+                for(int y = col - 1; y <= col + 1; y++) {
+                    if(!(isOutOfBounds(y, this.getWidth()))) {
+                        field[x][y].increaseHintCount();
+                    }
+                }
+        }
+    }
+
+    private boolean isOutOfBounds(int position, int maxValue) {
+        if((position < 0) || (position >= maxValue)) {
+            return true;
+        }
+        return false;
+    }
+
 }
