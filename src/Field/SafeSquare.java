@@ -2,8 +2,7 @@ package Field;
 
 public class SafeSquare extends Square {
 
-    @Override
-    public boolean isRevealed() {
+    public boolean isAMine() {
         return false;
     }
 

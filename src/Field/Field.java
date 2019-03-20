@@ -1,7 +1,5 @@
 package Field;
 
-import java.util.Random;
-
 public class Field {
 
     private final Square[][] field;
@@ -15,28 +13,20 @@ public class Field {
         }
     }
 
-    public Field(int row, int col, boolean randomise) {
+    public Field(int row, int col, MineRandom mockRandom) {
         this.field = new Square[row][col];
-        for(int x = 0; x < row; x++) {
-            for(int y = 0; y < col; y++) {
-                setRandomMinePositions();
-                if(!(squareIsAMine(x,y))) {
-                    field[x][y] = new SafeSquare();
-                }
-            }
-        }
+        this.setRandomMinePositions(mockRandom);
     }
 
-    private void setRandomMinePositions() {
+    private void setRandomMinePositions(MineRandom randomInstance) {
         int row;
         int col;
-        Random randomNumberGenerator = new Random();
 
-        int numberOfMinesToPlace = randomNumberGenerator.nextInt(this.getHeight()*this.getWidth());
+        int numberOfMinesToPlace = randomInstance.nextInt(numberOfSquaresInTheField());
 
         for(int i = 1; i <= numberOfMinesToPlace; i++) {
-            row = randomNumberGenerator.nextInt(this.getHeight());
-            col = randomNumberGenerator.nextInt(this.getWidth());
+            row = randomInstance.nextInt(this.getHeight());
+            col = randomInstance.nextInt(this.getWidth());
             this.placeMineSquare(row, col);
         }
     }
@@ -89,6 +79,10 @@ public class Field {
         return this.field[0].length;
     }
 
+    private int numberOfSquaresInTheField() {
+        return this.getHeight()*this.getWidth();
+    }
+
     public void placeMineSquare(int row, int col) {
         field[row][col] = new MineSquare();
     }
@@ -98,7 +92,7 @@ public class Field {
     }
 
     public void revealSquare(int row, int col){
-        field[row][col].setRevealed();
+        field[row][col].reveal();
     }
 
     private void revealAllMines() {
@@ -124,11 +118,11 @@ public class Field {
     private void increaseHintCountAround(int row, int col) {
         for(int x = row - 1; x <= row + 1; x++) {
             if(!(isOutOfBounds(x, this.getHeight())))
-            for(int y = col - 1; y <= col + 1; y++) {
-                if(!(isOutOfBounds(y, this.getWidth()))) {
-                    field[x][y].increaseHintCount();
+                for(int y = col - 1; y <= col + 1; y++) {
+                    if(!(isOutOfBounds(y, this.getWidth()))) {
+                        field[x][y].increaseHintCount();
+                    }
                 }
-            }
         }
     }
 

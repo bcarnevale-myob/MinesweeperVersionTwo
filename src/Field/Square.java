@@ -5,15 +5,11 @@ public abstract class Square {
     private boolean isRevealed = false;
     private int hintCount = 0;
 
-    boolean isAMine() {
-        return false;
-    }
-
     public boolean isRevealed() {
         return isRevealed;
     }
 
-    public void setRevealed() {
+    public void reveal() {
         isRevealed = true;
     }
 
@@ -24,4 +20,6 @@ public abstract class Square {
     public void increaseHintCount() {
         hintCount++;
     }
+
+    public abstract boolean isAMine();
 }

@@ -1,7 +1,8 @@
 package FieldTests;
 
-import Field.*;
+import Field.Field;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HintTest {
