@@ -8,14 +8,19 @@ class FieldTest {
 
     @Test
     public void canCreateAnEmptyField() {
-        Field field = new Field(4,4);
+        Field field = new Field(4,4, new PredictableNumberGenerator(0,2,3));
+
+        // var mineList = new ArrayList<Coordinates> {
+        // new Coordinate(2,3);
+        // }
+        //Field field = new Field(4,4, new PredictableNumberGenerator(mineList));
 
         assertTrue(field.isEmpty());
     }
 
     @Test
     public void canCreateAFieldOfDifferentSizes() {
-        Field field = new Field(3,4);
+        Field field = new Field(3,4, new PredictableNumberGenerator(1,2,3));
 
         int fieldHeight = field.getHeight();
         int fieldWidth = field.getWidth();
@@ -26,8 +31,7 @@ class FieldTest {
 
     @Test
     public void canPlaceAMineAndRevealTheBoardWithAllHints() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,0);
+        Field field = new Field(4,5, new PredictableNumberGenerator(1,0,0));
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -41,8 +45,8 @@ class FieldTest {
 
     @Test
     public void canRevealOneSquareAndDisplayFieldForUser() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,1);
+        Field field = new Field(4,5, new PredictableNumberGenerator(1,0,1));
+
         field.revealSquare(0,1);
         String actualField = field.getPlayerField();
 
@@ -57,16 +61,14 @@ class FieldTest {
 
     @Test
     public void canCheckIfCurrentSquareIsAMineSquare() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,1);
+        Field field = new Field(4,5, new PredictableNumberGenerator(1,0,1));
 
         assertTrue(field.squareIsAMine(0,1));
     }
 
     @Test
     public void canCheckIfCurrentSquareIsNotAMineSquare() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,1);
+        Field field = new Field(4,5, new PredictableNumberGenerator(1,0,1));
 
         assertFalse(field.squareIsAMine(1,1));
     }

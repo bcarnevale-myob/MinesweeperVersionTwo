@@ -8,8 +8,7 @@ public class PlayerFieldTest {
 
     @Test
     public void canRevealThreeSquaresAndDisplayBoardForUser() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,1);
+        Field field = new Field(4,5, new PredictableNumberGenerator(1,0,1));
 
         field.revealSquare(0,0);
         field.revealSquare(0,2);
@@ -27,9 +26,7 @@ public class PlayerFieldTest {
 
     @Test
     public void ifPlayerRevealsAMineAllMinesAreRevealed() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,1);
-        field.placeMineSquare(0,2);
+        Field field = new Field(4,5, new PredictableNumberGenerator(2,0,1, 0, 2));
         field.placeMineSquare(2,2);
 
         field.revealSquare(0,1);
@@ -46,9 +43,7 @@ public class PlayerFieldTest {
 
     @Test
     public void ifPlayerRevealsASquareAndThenAMineAllMinesAreRevealedAsWellAsTheirFirstChoiceOfSquare() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,1);
-        field.placeMineSquare(0,2);
+        Field field = new Field(4,5, new PredictableNumberGenerator(2,0,1,0,2));
         field.placeMineSquare(2,2);
 
         field.revealSquare(0,0);
@@ -66,9 +61,7 @@ public class PlayerFieldTest {
 
     @Test
     public void ifPlayerRevealsTwoSquaresAndThenAMineAllMinesAreRevealedAsWellAsTheFirstTwoRevealedSquares() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,1);
-        field.placeMineSquare(0,2);
+        Field field = new Field(4,5, new PredictableNumberGenerator(2,0,1,0,2));
         field.placeMineSquare(2,2);
 
         field.revealSquare(0,0);

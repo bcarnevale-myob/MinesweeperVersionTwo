@@ -1,6 +1,6 @@
 package Field;
 
-public interface MineRandom {
+public interface NumberGenerator {
 
     int nextInt(int i);
 

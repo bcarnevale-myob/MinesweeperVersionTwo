@@ -3,35 +3,28 @@ package Field;
 public class Field {
 
     private final Square[][] field;
+    private final NumberGenerator numberGenerator;
 
-    public Field(int row, int col) {
+    public Field(int row, int col, NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
         this.field = new Square[row][col];
         for(int x = 0; x < row; x++) {
             for(int y = 0; y < col; y++) {
                 field[x][y] = new SafeSquare();
             }
         }
+        this.setRandomMinePositions();
     }
 
-    public Field(int row, int col, MineRandom randomNumberGenerator) {
-        this.field = new Square[row][col];
-        for(int x = 0; x < row; x++) {
-            for(int y = 0; y < col; y++) {
-                field[x][y] = new SafeSquare();
-            }
-        }
-        this.setRandomMinePositions(randomNumberGenerator);
-    }
-
-    private void setRandomMinePositions(MineRandom randomNumberGenerator) {
+    private void setRandomMinePositions() {
         int row;
         int col;
 
-        int numberOfMinesToPlace = randomNumberGenerator.nextInt(numberOfSquares());
+        int numberOfMinesToPlace = numberGenerator.nextInt(numberOfSquares());
 
         for(int i = 1; i <= numberOfMinesToPlace; i++) {
-            row = randomNumberGenerator.nextInt(this.getHeight());
-            col = randomNumberGenerator.nextInt(this.getWidth());
+            row = numberGenerator.nextInt(this.getHeight());
+            col = numberGenerator.nextInt(this.getWidth());
             this.placeMineSquare(row, col);
         }
     }

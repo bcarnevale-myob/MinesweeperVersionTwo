@@ -9,8 +9,7 @@ public class HintTest {
 
     @Test
     public void canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(5,5);
-        field.placeMineSquare(0,0);
+        Field field = new Field(5,5, new PredictableNumberGenerator(1,0,0));
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -25,8 +24,7 @@ public class HintTest {
 
     @Test
     public void canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(5,5);
-        field.placeMineSquare(2,2);
+        Field field = new Field(5,5, new PredictableNumberGenerator(1,2,2));
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -41,9 +39,7 @@ public class HintTest {
 
     @Test
     public void canPlaceTwoMinesAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,0);
-        field.placeMineSquare(2,2);
+        Field field = new Field(4,5, new PredictableNumberGenerator(2,0,0,2,2));
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -57,9 +53,7 @@ public class HintTest {
 
     @Test
     public void canPlaceThreeMinesAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,0);
-        field.placeMineSquare(2,2);
+        Field field = new Field(4,5, new PredictableNumberGenerator(2,0,0,2,2));
         field.placeMineSquare(2,1);
         String actualField = field.getRevealedField();
 
