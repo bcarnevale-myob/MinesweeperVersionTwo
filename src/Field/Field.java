@@ -48,7 +48,8 @@ public class Field {
         addHintsToField();
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
-                this.revealSquare(x,y);
+                Coordinates position = new Coordinates(x,y);
+                this.revealSquare(position);
                 revealedField += field[x][y].toString();
             }
             revealedField += "\n";
@@ -80,13 +81,15 @@ public class Field {
         return this.getHeight()*this.getWidth();
     }
 
-    public boolean squareIsAMine(Coordinates coordinate) {
-        int row = coordinate.getX();
-        int col = coordinate.getY();
+    public boolean squareIsAMine(Coordinates position) {
+        int row = position.getX();
+        int col = position.getY();
         return field[row][col].isAMine();
     }
 
-    public void revealSquare(int row, int col) {
+    public void revealSquare(Coordinates position) {
+        int row = position.getX();
+        int col = position.getY();
         field[row][col].reveal();
     }
 
@@ -95,7 +98,7 @@ public class Field {
             for (int y = 0; y < this.getWidth(); y++) {
                 Coordinates position = new Coordinates(x,y);
                 if(squareIsAMine(position)) {
-                    revealSquare(x,y);
+                    revealSquare(position);
                 }
             }
         }
@@ -106,18 +109,20 @@ public class Field {
             for (int y = 0; y < this.getWidth(); y++) {
                 Coordinates position = new Coordinates(x,y);
                 if(squareIsAMine(position)) {
-                    increaseHintCountAround(x,y);
+                    increaseHintCountAround(position);
                 }
             }
         }
     }
 
-    private void increaseHintCountAround(int x, int y) {
-        for(int currentX = x - 1; currentX <= x + 1; currentX++) {
-            if(!(isOutOfBounds(currentX, this.getHeight())))
-                for(int currentY = y - 1; currentY <= y + 1; currentY++) {
-                    if(!(isOutOfBounds(currentY, this.getWidth()))) {
-                        field[currentX][currentY].increaseHintCount();
+    private void increaseHintCountAround(Coordinates position) {
+        int currentX = position.getX();
+        int currentY = position.getY();
+        for(int x = currentX - 1; x <= currentX + 1; x++) {
+            if(!(isOutOfBounds(x, this.getHeight())))
+                for(int y = currentY - 1; y <= currentY + 1; y++) {
+                    if(!(isOutOfBounds(y, this.getWidth()))) {
+                        field[x][y].increaseHintCount();
                     }
                 }
         }

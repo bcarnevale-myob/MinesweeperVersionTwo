@@ -57,7 +57,7 @@ class FieldTest {
 
         Field field = new Field(4, 5, new PredictableMinePlacer(mines));
 
-        field.revealSquare(0,1);
+        field.revealSquare(new Coordinates(0,1));
         String actualField = field.getPlayerField();
 
         String expectedField =
