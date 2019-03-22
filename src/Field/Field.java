@@ -3,35 +3,33 @@ package Field;
 public class Field {
 
     private final Square[][] field;
-    private final NumberGenerator numberGenerator;
+    private final MinePlacer minePlacer;
 
-    public Field(int row, int col, NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
-        this.field = new Square[row][col];
-        for(int x = 0; x < row; x++) {
-            for(int y = 0; y < col; y++) {
+    public Field(int height, int width, MinePlacer minePlacer) {
+        this.minePlacer = minePlacer;
+        this.field = new Square[height][width];
+
+        for(int x = 0; x < height; x++) {
+            for(int y = 0; y < width; y++) {
                 field[x][y] = new SafeSquare();
             }
         }
-        this.setRandomMinePositions();
+            this.setRandomMinePositions();
     }
 
     private void setRandomMinePositions() {
-        int row;
-        int col;
+        int numberOfMinesToPlace = minePlacer.numberOfMines(numberOfSquares());
 
-        int numberOfMinesToPlace = numberGenerator.nextInt(numberOfSquares());
-
-        for(int i = 1; i <= numberOfMinesToPlace; i++) {
-            row = numberGenerator.nextInt(this.getHeight());
-            col = numberGenerator.nextInt(this.getWidth());
-            this.placeMineSquare(row, col);
+        for(int i = 0; i < numberOfMinesToPlace; i++) {
+            Coordinates coord = minePlacer.nextCoordinate();
+            field[coord.getX()][coord.getY()] = new MineSquare();
         }
     }
 
     public String getPlayerField() {
         String playerField = "";
         addHintsToField();
+
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
                 if((squareIsAMine(x,y)) && (field[x][y].isRevealed())) {
@@ -81,10 +79,6 @@ public class Field {
         return this.getHeight()*this.getWidth();
     }
 
-    public void placeMineSquare(int row, int col) {
-        field[row][col] = new MineSquare();
-    }
-
     public boolean squareIsAMine(int row, int col) {
         return field[row][col].isAMine();
     }
@@ -113,12 +107,12 @@ public class Field {
         }
     }
 
-    private void increaseHintCountAround(int row, int col) {
-        for(int x = row - 1; x <= row + 1; x++) {
-            if(!(isOutOfBounds(x, this.getHeight())))
-                for(int y = col - 1; y <= col + 1; y++) {
-                    if(!(isOutOfBounds(y, this.getWidth()))) {
-                        field[x][y].increaseHintCount();
+    private void increaseHintCountAround(int x, int y) {
+        for(int currentX = x - 1; currentX <= x + 1; currentX++) {
+            if(!(isOutOfBounds(currentX, this.getHeight())))
+                for(int currentY = y - 1; currentY <= y + 1; currentY++) {
+                    if(!(isOutOfBounds(currentY, this.getWidth()))) {
+                        field[currentX][currentY].increaseHintCount();
                     }
                 }
         }
