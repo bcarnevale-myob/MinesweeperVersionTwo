@@ -21,8 +21,8 @@ public class Field {
         int numberOfMinesToPlace = minePlacer.numberOfMines(numberOfSquares());
 
         for(int i = 0; i < numberOfMinesToPlace; i++) {
-            Coordinates coord = minePlacer.nextCoordinate();
-            field[coord.getX()][coord.getY()] = new MineSquare();
+            Coordinates minePosition = minePlacer.nextCoordinate();
+            field[minePosition.getX()][minePosition.getY()] = new MineSquare();
         }
     }
 
@@ -32,7 +32,8 @@ public class Field {
 
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
-                if((squareIsAMine(x,y)) && (field[x][y].isRevealed())) {
+                Coordinates position = new Coordinates(x,y);
+                if((squareIsAMine(position)) && (field[x][y].isRevealed())) {
                     revealAllMines();
                 }
                 playerField += field[x][y].toString();
@@ -79,18 +80,21 @@ public class Field {
         return this.getHeight()*this.getWidth();
     }
 
-    public boolean squareIsAMine(int row, int col) {
+    public boolean squareIsAMine(Coordinates coordinate) {
+        int row = coordinate.getX();
+        int col = coordinate.getY();
         return field[row][col].isAMine();
     }
 
-    public void revealSquare(int row, int col){
+    public void revealSquare(int row, int col) {
         field[row][col].reveal();
     }
 
     private void revealAllMines() {
         for(int x = 0; x < this.getHeight(); x++) {
             for (int y = 0; y < this.getWidth(); y++) {
-                if(squareIsAMine(x,y)) {
+                Coordinates position = new Coordinates(x,y);
+                if(squareIsAMine(position)) {
                     revealSquare(x,y);
                 }
             }
@@ -100,7 +104,8 @@ public class Field {
     private void addHintsToField() {
         for(int x = 0; x < this.getHeight(); x++) {
             for (int y = 0; y < this.getWidth(); y++) {
-                if(squareIsAMine(x,y)) {
+                Coordinates position = new Coordinates(x,y);
+                if(squareIsAMine(position)) {
                     increaseHintCountAround(x,y);
                 }
             }
