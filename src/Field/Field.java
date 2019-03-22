@@ -5,7 +5,9 @@ public class Field {
     private final Square[][] field;
     private final MinePlacer minePlacer;
 
-    public Field(int height, int width, MinePlacer minePlacer) {
+    public Field(Size size, MinePlacer minePlacer) {
+        int height = size.getHeight();
+        int width = size.getWidth();
         this.minePlacer = minePlacer;
         this.field = new Square[height][width];
 
