@@ -14,7 +14,7 @@ public class HintTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 0));
 
-        Field field = new Field(5, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(5, 5), new PredictableMinePlacer(mines));
 
         String actualField = field.getRevealedField();
 
@@ -33,7 +33,7 @@ public class HintTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(2, 2));
 
-        Field field = new Field(5, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(5, 5), new PredictableMinePlacer(mines));
 
         String actualField = field.getRevealedField();
 
@@ -53,7 +53,7 @@ public class HintTest {
         mines.add(new Coordinates(0, 0));
         mines.add(new Coordinates(2, 2));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -72,7 +72,7 @@ public class HintTest {
         mines.add(new Coordinates(2, 2));
         mines.add(new Coordinates(2, 1));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
         String actualField = field.getRevealedField();
 

@@ -13,7 +13,7 @@ class FieldTest {
     public void canCreateAnEmptyField() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
 
-        Field field = new Field(4, 4, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 4), new PredictableMinePlacer(mines));
 
         assertTrue(field.isEmpty());
     }
@@ -23,7 +23,7 @@ class FieldTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(2, 3));
 
-        Field field = new Field(3, 4, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(3, 4), new PredictableMinePlacer(mines));
 
         int fieldHeight = field.getHeight();
         int fieldWidth = field.getWidth();
@@ -37,7 +37,7 @@ class FieldTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 0));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
         String actualField = field.getRevealedField();
 
@@ -55,7 +55,7 @@ class FieldTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 1));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size (4,5), new PredictableMinePlacer(mines));
 
         field.revealSquare(new Coordinates(0,1));
         String actualField = field.getPlayerField();
@@ -74,7 +74,7 @@ class FieldTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 1));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
         assertTrue(field.squareIsAMine(new Coordinates(0,1)));
     }
@@ -84,7 +84,7 @@ class FieldTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 1));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
         assertFalse(field.squareIsAMine(new Coordinates(1,1)));
     }
