@@ -18,7 +18,7 @@ public class Field {
     }
 
     private void setRandomMinePositions() {
-        int numberOfMinesToPlace = minePlacer.numberOfMines(numberOfSquares());
+        int numberOfMinesToPlace = minePlacer.numberOfMines();
 
         for(int i = 0; i < numberOfMinesToPlace; i++) {
             Coordinates minePosition = minePlacer.nextCoordinate();

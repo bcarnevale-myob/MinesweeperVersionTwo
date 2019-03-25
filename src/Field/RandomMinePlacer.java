@@ -15,8 +15,8 @@ public class RandomMinePlacer implements MinePlacer {
     }
 
     @Override
-    public int numberOfMines(int i) {
-        return randomNumberGenerator.nextInt(i - 1) + 1;
+    public int numberOfMines() {
+        return randomNumberGenerator.nextInt((xUpper * yUpper) - 1) + 1;
     }
 
     @Override

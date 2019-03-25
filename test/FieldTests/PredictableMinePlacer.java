@@ -15,7 +15,7 @@ public class PredictableMinePlacer implements MinePlacer {
     }
 
     @Override
-    public int numberOfMines(int upperBound) {
+    public int numberOfMines() {
         return mines.size();
     }
 
