@@ -1,7 +1,9 @@
 package FieldTests;
 
-import Field.Field;
+import Field.*;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,8 +11,11 @@ public class HintTest {
 
     @Test
     public void canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(5,5);
-        field.placeMineSquare(0,0);
+        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
+        mines.add(new Coordinates(0, 0));
+
+        Field field = new Field(5, 5, new PredictableMinePlacer(mines));
+
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -25,8 +30,11 @@ public class HintTest {
 
     @Test
     public void canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(5,5);
-        field.placeMineSquare(2,2);
+        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
+        mines.add(new Coordinates(2, 2));
+
+        Field field = new Field(5, 5, new PredictableMinePlacer(mines));
+
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -41,9 +49,11 @@ public class HintTest {
 
     @Test
     public void canPlaceTwoMinesAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,0);
-        field.placeMineSquare(2,2);
+        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
+        mines.add(new Coordinates(0, 0));
+        mines.add(new Coordinates(2, 2));
+
+        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
         String actualField = field.getRevealedField();
 
         String expectedField =
@@ -57,10 +67,13 @@ public class HintTest {
 
     @Test
     public void canPlaceThreeMinesAndHintCountOfAdjacentSquaresIncreasesByOne() {
-        Field field = new Field(4,5);
-        field.placeMineSquare(0,0);
-        field.placeMineSquare(2,2);
-        field.placeMineSquare(2,1);
+        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
+        mines.add(new Coordinates(0, 0));
+        mines.add(new Coordinates(2, 2));
+        mines.add(new Coordinates(2, 1));
+
+        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+
         String actualField = field.getRevealedField();
 
         String expectedField =
