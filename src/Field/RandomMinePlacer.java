@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class RandomMinePlacer implements MinePlacer {
 
-    private final Random randomNumberGenerator;
+    private final IRandom randomNumberGenerator;
     private final int xUpper;
     private final int yUpper;
 
-    public RandomMinePlacer(Size fieldSize) {
-        randomNumberGenerator = new Random();
+    public RandomMinePlacer(Size fieldSize, IRandom randomNumberGenerator) {
+        this.randomNumberGenerator = randomNumberGenerator;
         this.xUpper = fieldSize.getHeight();
         this.yUpper = fieldSize.getWidth();
     }
