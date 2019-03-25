@@ -14,15 +14,15 @@ public class PlayerFieldTest {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 1));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(0, 0);
-        field.revealSquare(0, 2);
-        field.revealSquare(2, 2);
+        field.revealSquare(new Coordinates(0, 0));
+        field.revealSquare(new Coordinates(0, 2));
+        field.revealSquare(new Coordinates(2, 2));
         String actualField = field.getPlayerField();
 
         String expectedField =
-                "1.1..\n" +
+                        "1.1..\n" +
                         ".....\n" +
                         "..0..\n" +
                         ".....\n";
@@ -38,9 +38,9 @@ public class PlayerFieldTest {
         mines.add(new Coordinates(2, 2));
 
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(0, 1);
+        field.revealSquare(new Coordinates(0, 1));
         String actualField = field.getPlayerField();
 
         String expectedField =
@@ -59,10 +59,10 @@ public class PlayerFieldTest {
         mines.add(new Coordinates(0, 2));
         mines.add(new Coordinates(2, 2));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(0, 0);
-        field.revealSquare(0, 1);
+        field.revealSquare(new Coordinates(0, 0));
+        field.revealSquare(new Coordinates(0, 1));
         String actualField = field.getPlayerField();
 
         String expectedField =
@@ -81,11 +81,11 @@ public class PlayerFieldTest {
         mines.add(new Coordinates(0, 2));
         mines.add(new Coordinates(2, 2));
 
-        Field field = new Field(4, 5, new PredictableMinePlacer(mines));
+        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(0, 0);
-        field.revealSquare(2, 4);
-        field.revealSquare(0, 1);
+        field.revealSquare(new Coordinates(0, 0));
+        field.revealSquare(new Coordinates(2, 4));
+        field.revealSquare(new Coordinates(0, 1));
         String actualField = field.getPlayerField();
 
         String expectedField =

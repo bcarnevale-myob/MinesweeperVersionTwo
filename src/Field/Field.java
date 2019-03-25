@@ -5,7 +5,9 @@ public class Field {
     private final Square[][] field;
     private final MinePlacer minePlacer;
 
-    public Field(int height, int width, MinePlacer minePlacer) {
+    public Field(Size size, MinePlacer minePlacer) {
+        int height = size.getHeight();
+        int width = size.getWidth();
         this.minePlacer = minePlacer;
         this.field = new Square[height][width];
 
@@ -21,8 +23,8 @@ public class Field {
         int numberOfMinesToPlace = minePlacer.numberOfMines(numberOfSquares());
 
         for(int i = 0; i < numberOfMinesToPlace; i++) {
-            Coordinates coord = minePlacer.nextCoordinate();
-            field[coord.getX()][coord.getY()] = new MineSquare();
+            Coordinates minePosition = minePlacer.nextCoordinate();
+            field[minePosition.getX()][minePosition.getY()] = new MineSquare();
         }
     }
 
@@ -32,7 +34,8 @@ public class Field {
 
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
-                if((squareIsAMine(x,y)) && (field[x][y].isRevealed())) {
+                Coordinates position = new Coordinates(x,y);
+                if((squareIsAMine(position)) && (field[x][y].isRevealed())) {
                     revealAllMines();
                 }
                 playerField += field[x][y].toString();
@@ -47,7 +50,8 @@ public class Field {
         addHintsToField();
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
-                this.revealSquare(x,y);
+                Coordinates position = new Coordinates(x,y);
+                this.revealSquare(position);
                 revealedField += field[x][y].toString();
             }
             revealedField += "\n";
@@ -79,19 +83,24 @@ public class Field {
         return this.getHeight()*this.getWidth();
     }
 
-    public boolean squareIsAMine(int row, int col) {
+    public boolean squareIsAMine(Coordinates position) {
+        int row = position.getX();
+        int col = position.getY();
         return field[row][col].isAMine();
     }
 
-    public void revealSquare(int row, int col){
+    public void revealSquare(Coordinates position) {
+        int row = position.getX();
+        int col = position.getY();
         field[row][col].reveal();
     }
 
     private void revealAllMines() {
         for(int x = 0; x < this.getHeight(); x++) {
             for (int y = 0; y < this.getWidth(); y++) {
-                if(squareIsAMine(x,y)) {
-                    revealSquare(x,y);
+                Coordinates position = new Coordinates(x,y);
+                if(squareIsAMine(position)) {
+                    revealSquare(position);
                 }
             }
         }
@@ -100,19 +109,22 @@ public class Field {
     private void addHintsToField() {
         for(int x = 0; x < this.getHeight(); x++) {
             for (int y = 0; y < this.getWidth(); y++) {
-                if(squareIsAMine(x,y)) {
-                    increaseHintCountAround(x,y);
+                Coordinates position = new Coordinates(x,y);
+                if(squareIsAMine(position)) {
+                    increaseHintCountAround(position);
                 }
             }
         }
     }
 
-    private void increaseHintCountAround(int x, int y) {
-        for(int currentX = x - 1; currentX <= x + 1; currentX++) {
-            if(!(isOutOfBounds(currentX, this.getHeight())))
-                for(int currentY = y - 1; currentY <= y + 1; currentY++) {
-                    if(!(isOutOfBounds(currentY, this.getWidth()))) {
-                        field[currentX][currentY].increaseHintCount();
+    private void increaseHintCountAround(Coordinates position) {
+        int currentX = position.getX();
+        int currentY = position.getY();
+        for(int x = currentX - 1; x <= currentX + 1; x++) {
+            if(!(isOutOfBounds(x, this.getHeight())))
+                for(int y = currentY - 1; y <= currentY + 1; y++) {
+                    if(!(isOutOfBounds(y, this.getWidth()))) {
+                        field[x][y].increaseHintCount();
                     }
                 }
         }
