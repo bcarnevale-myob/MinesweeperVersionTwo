@@ -8,10 +8,10 @@ public class RandomMinePlacer implements MinePlacer {
     private final int xUpper;
     private final int yUpper;
 
-    public RandomMinePlacer(int xUpper, int yUpper) {
+    public RandomMinePlacer(Size fieldSize) {
         randomNumberGenerator = new Random();
-        this.xUpper = xUpper;
-        this.yUpper = yUpper;
+        this.xUpper = fieldSize.getHeight();
+        this.yUpper = fieldSize.getWidth();
     }
 
     @Override

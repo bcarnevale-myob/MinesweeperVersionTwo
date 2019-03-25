@@ -6,13 +6,11 @@ public class Field {
     private final MinePlacer minePlacer;
 
     public Field(Size size, MinePlacer minePlacer) {
-        int height = size.getHeight();
-        int width = size.getWidth();
         this.minePlacer = minePlacer;
-        this.field = new Square[height][width];
+        this.field = new Square[size.getHeight()][size.getWidth()];
 
-        for(int x = 0; x < height; x++) {
-            for(int y = 0; y < width; y++) {
+        for(int x = 0; x < size.getHeight(); x++) {
+            for(int y = 0; y < size.getWidth(); y++) {
                 field[x][y] = new SafeSquare();
             }
         }
