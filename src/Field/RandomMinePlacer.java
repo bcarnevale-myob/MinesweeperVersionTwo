@@ -1,7 +1,5 @@
 package Field;
 
-import java.util.Random;
-
 public class RandomMinePlacer implements MinePlacer {
 
     private final IRandom randomNumberGenerator;

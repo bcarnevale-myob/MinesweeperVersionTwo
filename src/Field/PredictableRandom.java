@@ -2,19 +2,22 @@ package Field;
 
 public class PredictableRandom implements IRandom {
 
+    private int[] intsToReturn;
     private int callCounter = 0;
 
-    public PredictableRandom() {
-
+    public PredictableRandom(int[] intsToReturn) {
+        this.intsToReturn = intsToReturn;
     }
 
     @Override
     public int nextInt(int upperBound) {
-        if(callCounter == 0) {
-            callCounter++;
-            return 1;
+        callCounter++;
+
+        if (callCounter == intsToReturn.length) {
+            callCounter = 0;
         }
-        return 0;
+
+        return intsToReturn[callCounter];
     }
 
 }
