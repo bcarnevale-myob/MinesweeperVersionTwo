@@ -1,11 +1,13 @@
 package Field;
 
+import MinePlacer.IMinePlacer;
+
 public class Field {
 
     private final Square[][] field;
-    private final MinePlacer minePlacer;
+    private final IMinePlacer minePlacer;
 
-    public Field(Size size, MinePlacer minePlacer) {
+    public Field(Size size, IMinePlacer minePlacer) {
         this.minePlacer = minePlacer;
         this.field = new Square[size.getHeight()][size.getWidth()];
 
@@ -18,7 +20,7 @@ public class Field {
     }
 
     private void setRandomMinePositions() {
-        int numberOfMinesToPlace = minePlacer.numberOfMines(numberOfSquares());
+        int numberOfMinesToPlace = minePlacer.numberOfMines();
 
         for(int i = 0; i < numberOfMinesToPlace; i++) {
             Coordinates minePosition = minePlacer.nextCoordinate();

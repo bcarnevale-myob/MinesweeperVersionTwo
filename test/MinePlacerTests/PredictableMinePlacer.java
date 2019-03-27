@@ -1,11 +1,11 @@
-package FieldTests;
+package MinePlacerTests;
 
 import Field.Coordinates;
-import Field.MinePlacer;
+import MinePlacer.IMinePlacer;
 
 import java.util.List;
 
-public class PredictableMinePlacer implements MinePlacer {
+public class PredictableMinePlacer implements IMinePlacer {
 
     private List<Coordinates> mines;
     private int callCounter = -1;
@@ -15,7 +15,7 @@ public class PredictableMinePlacer implements MinePlacer {
     }
 
     @Override
-    public int numberOfMines(int upperBound) {
+    public int numberOfMines() {
         return mines.size();
     }
 
