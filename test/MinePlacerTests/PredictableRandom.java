@@ -4,6 +4,7 @@ public class PredictableRandom implements IRandom {
 
     private int[] intsToReturn;
     private int callCounter = 0;
+    private int upperBound;
 
     public PredictableRandom(int[] intsToReturn) {
         this.intsToReturn = intsToReturn;
@@ -11,6 +12,7 @@ public class PredictableRandom implements IRandom {
 
     @Override
     public int nextInt(int upperBound) {
+        this.upperBound = upperBound;
         callCounter++;
 
         if (callCounter == intsToReturn.length) {
@@ -20,4 +22,7 @@ public class PredictableRandom implements IRandom {
         return intsToReturn[callCounter];
     }
 
+    public int getUpperBound() {
+        return this.upperBound;
+    }
 }

@@ -1,4 +1,6 @@
-package Field;
+package MinePlacer;
+
+import Field.Coordinates;
 
 public interface MinePlacer {
 

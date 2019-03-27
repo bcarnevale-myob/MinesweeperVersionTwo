@@ -1,7 +1,7 @@
 package FieldTests;
 
 import Field.Coordinates;
-import Field.MinePlacer;
+import MinePlacer.MinePlacer;
 
 import java.util.List;
 
