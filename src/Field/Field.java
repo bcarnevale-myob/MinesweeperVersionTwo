@@ -137,4 +137,16 @@ public class Field {
         return false;
     }
 
+    public String printField() {
+        String result = "";
+
+        for (int x = 0; x < this.getHeight(); x++) {
+            for (int y = 0; y < this.getWidth(); y++) {
+                result = result + this.field[x][y].toString();
+            }
+            result = result + "\n";
+        }
+        return result;
+    }
+
 }
