@@ -1,4 +1,6 @@
-package Field;
+package MinePlacerTests;
+
+import MinePlacer.IRandom;
 
 public class PredictableRandom implements IRandom {
 
@@ -24,5 +26,9 @@ public class PredictableRandom implements IRandom {
 
     public int getUpperBound() {
         return this.upperBound;
+    }
+
+    public int getCallCounter() {
+        return callCounter;
     }
 }

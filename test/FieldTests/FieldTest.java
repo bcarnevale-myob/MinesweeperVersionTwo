@@ -1,6 +1,7 @@
 package FieldTests;
 
 import Field.*;
+import MinePlacerTests.PredictableMinePlacer;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

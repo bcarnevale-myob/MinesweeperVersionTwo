@@ -1,6 +1,9 @@
-package Field;
+package MinePlacer;
 
-public class RandomMinePlacer implements MinePlacer {
+import Field.Coordinates;
+import Field.Size;
+
+public class RandomMinePlacer implements IMinePlacer {
 
     private final IRandom randomNumberGenerator;
     private final int xUpper;

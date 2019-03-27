@@ -1,4 +1,4 @@
-package Field;
+package MinePlacer;
 
 import java.util.Random;
 

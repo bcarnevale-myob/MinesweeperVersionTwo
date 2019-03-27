@@ -2,7 +2,7 @@ package MinePlacer;
 
 import Field.Coordinates;
 
-public interface MinePlacer {
+public interface IMinePlacer {
 
     int numberOfMines();
 
