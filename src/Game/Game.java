@@ -20,6 +20,7 @@ public class Game {
     }
 
     private void setUpGame() {
+
         this.writer.write("Welcome To MineSweeper!" + "\n\n" + "Let's Play..." + "\n");
 
         String height = this.reader.prompt("How tall do you want your field?");
@@ -29,20 +30,35 @@ public class Game {
         Size fieldSize = new Size(Integer.parseInt(height), Integer.parseInt(width));
         this.field = new Field(fieldSize, new RandomMinePlacer(fieldSize, new RealRandom()));
 
-        this.writer.write(field.printField());
+        this.writer.write(field.getPlayerField());
+
     }
 
     public void play() {
 
-        String userHit = reader.prompt("Select your hit:");
+        boolean gameIsNotOver = true;
 
-        String[] userHitCoordinates = userHit.split(",");
-        int userHitX = Integer.parseInt(userHitCoordinates[0]);
-        int userHitY = Integer.parseInt(userHitCoordinates[1]);
+        while(gameIsNotOver) {
 
-        field.revealSquare(new Coordinates(userHitX, userHitY));
+            String userEnterHit = reader.prompt("Select your hit:");
 
-        writer.write(field.printField());
+            String[] userHitCoordinates = userEnterHit.split(",");
+            int userHitX = Integer.parseInt(userHitCoordinates[0]);
+            int userHitY = Integer.parseInt(userHitCoordinates[1]);
+
+            Coordinates userHitCoord = new Coordinates(userHitX, userHitY);
+
+            field.revealSquare(userHitCoord);
+
+            writer.write(field.getPlayerField());
+
+            if(field.squareIsAMine(userHitCoord)) {
+                writer.write("You hit a mine! GAME OVER.");
+                gameIsNotOver = false;
+            }
+
+        }
 
     }
+
 }

@@ -3,6 +3,7 @@ package Game;
 import java.util.Scanner;
 
 public class ConsoleReader implements IReader {
+
     @Override
     public String prompt(String message) {
         Scanner systemInScanner = new Scanner(System.in);
@@ -10,4 +11,5 @@ public class ConsoleReader implements IReader {
 
         return systemInScanner.nextLine();
     }
+
 }

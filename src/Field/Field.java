@@ -16,7 +16,9 @@ public class Field {
                 field[x][y] = new SafeSquare();
             }
         }
-            this.setRandomMinePositions();
+
+        this.setRandomMinePositions();
+        addHintsToField();
     }
 
     private void setRandomMinePositions() {
@@ -30,7 +32,6 @@ public class Field {
 
     public String getPlayerField() {
         String playerField = "";
-        addHintsToField();
 
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
@@ -47,7 +48,7 @@ public class Field {
 
     public String getRevealedField() {
         String revealedField = "";
-        addHintsToField();
+
         for(int x = 0; x < this.getHeight(); x++) {
             for(int y = 0; y < this.getWidth(); y++) {
                 Coordinates position = new Coordinates(x,y);
@@ -77,10 +78,6 @@ public class Field {
 
     public int getWidth() {
         return this.field[0].length;
-    }
-
-    private int numberOfSquares() {
-        return this.getHeight()*this.getWidth();
     }
 
     public boolean squareIsAMine(Coordinates position) {
@@ -135,18 +132,6 @@ public class Field {
             return true;
         }
         return false;
-    }
-
-    public String printField() {
-        String result = "";
-
-        for (int x = 0; x < this.getHeight(); x++) {
-            for (int y = 0; y < this.getWidth(); y++) {
-                result = result + this.field[x][y].toString();
-            }
-            result = result + "\n";
-        }
-        return result;
     }
 
 }
