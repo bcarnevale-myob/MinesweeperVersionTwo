@@ -1,6 +1,7 @@
 package Game;
 
 import Field.*;
+import MinePlacer.IRandom;
 import MinePlacer.RandomMinePlacer;
 import MinePlacer.RealRandom;
 
@@ -10,16 +11,22 @@ public class Game {
     private IWriter writer;
     private Field field;
 
+    /// PROPERTY INJECTION, We aren't using this for now, it is here for demonstration porpoises
+    private IRandom randomProperty = new RealRandom(); // Property Injection
+
+    public void setRandomProperty(IRandom random) {
+        this.randomProperty = random;
+    }
+    ///
+
     public Game(IReader reader, IWriter writer) {
 
         this.writer = writer;
         this.reader = reader;
 
-        setUpGame();
-
     }
 
-    private void setUpGame() {
+    public void setUpGame(IRandom random) {
 
         this.writer.write("Welcome To MineSweeper!" + "\n\n" + "Let's Play..." + "\n");
 
@@ -28,10 +35,14 @@ public class Game {
         String width = this.reader.prompt("How wide do you want your field?");
 
         Size fieldSize = new Size(Integer.parseInt(height), Integer.parseInt(width));
-        this.field = new Field(fieldSize, new RandomMinePlacer(fieldSize, new RealRandom()));
+        this.field = new Field(fieldSize, new RandomMinePlacer(fieldSize, random));
 
         this.writer.write(field.getPlayerField());
 
+    }
+
+    public void setUpGame() {
+        setUpGame(new RealRandom());
     }
 
     public void play() {
@@ -54,6 +65,7 @@ public class Game {
 
             if(field.squareIsAMine(userHitCoord)) {
                 writer.write("You hit a mine! GAME OVER.");
+                writer.write(field.getRevealedField());
                 gameIsNotOver = false;
             }
 
@@ -61,4 +73,7 @@ public class Game {
 
     }
 
+    public String revealField() {
+        return this.field.getRevealedField();
+    }
 }
