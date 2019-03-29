@@ -42,19 +42,4 @@ public class RandomiseMinePlacerTest {
 
         assertEquals(5, numberOfMines);
     }
-
-    @Test
-    public void whenNumberOfMinesIsCalledThenCallCounterIsOne() {
-        int[] intsToReturn = new int[2];
-        intsToReturn[0] = 4;
-        PredictableRandom predictableRandom = new PredictableRandom(intsToReturn);
-        Size fieldSize = new Size(5, 5);
-        IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
-        Field field = new Field(fieldSize, minePlacer);
-
-        int calledTimes = predictableRandom.getCallCounter();
-
-        assertEquals(1, calledTimes);
-    }
-
 }

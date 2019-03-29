@@ -5,7 +5,7 @@ import MinePlacer.IRandom;
 public class PredictableRandom implements IRandom {
 
     private int[] intsToReturn;
-    private int callCounter = 0;
+    private int callCounter = -1;
     private int upperBound;
 
     public PredictableRandom(int[] intsToReturn) {
@@ -17,18 +17,10 @@ public class PredictableRandom implements IRandom {
         this.upperBound = upperBound;
         callCounter++;
 
-        if (callCounter == intsToReturn.length) {
-            callCounter = 0;
-        }
-
         return intsToReturn[callCounter];
     }
 
     public int getUpperBound() {
         return this.upperBound;
-    }
-
-    public int getCallCounter() {
-        return callCounter;
     }
 }
