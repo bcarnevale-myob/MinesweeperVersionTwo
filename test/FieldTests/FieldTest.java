@@ -58,11 +58,11 @@ class FieldTest {
 
         Field field = new Field(new Size (4,5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(new Coordinates(0,1));
+        field.revealSquare(new Coordinates(0,0));
         String actualField = field.getPlayerField();
 
         String expectedField =
-                        ".*...\n" +
+                        "1....\n" +
                         ".....\n" +
                         ".....\n" +
                         ".....\n";
