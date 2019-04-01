@@ -6,13 +6,14 @@ public class Field {
 
     private final Square[][] field;
     private final IMinePlacer minePlacer;
+    private final Size size;
 
     public Field(Size size, IMinePlacer minePlacer) {
         this.minePlacer = minePlacer;
         this.field = new Square[size.getHeight()][size.getWidth()];
-
-        for(int x = 0; x < size.getHeight(); x++) {
-            for(int y = 0; y < size.getWidth(); y++) {
+        this.size = size;
+        for (int x = 0; x < size.getHeight(); x++) {
+            for (int y = 0; y < size.getWidth(); y++) {
                 field[x][y] = new SafeSquare();
             }
         }
@@ -24,7 +25,7 @@ public class Field {
     private void setRandomMinePositions() {
         int numberOfMinesToPlace = minePlacer.numberOfMines();
 
-        for(int i = 0; i < numberOfMinesToPlace; i++) {
+        for (int i = 0; i < numberOfMinesToPlace; i++) {
             Coordinates minePosition = minePlacer.nextCoordinate();
             field[minePosition.getX()][minePosition.getY()] = new MineSquare();
         }
@@ -33,10 +34,10 @@ public class Field {
     public String getPlayerField() {
         String playerField = "";
 
-        for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                Coordinates position = new Coordinates(x,y);
-                if((squareIsAMine(position)) && (field[x][y].isRevealed())) {
+        for (int x = 0; x < this.size.getHeight(); x++) {
+            for (int y = 0; y < this.size.getWidth(); y++) {
+                Coordinates position = new Coordinates(x, y);
+                if ((squareIsAMine(position)) && (field[x][y].isRevealed())) {
                     return getRevealedField();
                 }
                 playerField += field[x][y].toString();
@@ -49,9 +50,9 @@ public class Field {
     public String getRevealedField() {
         String revealedField = "";
 
-        for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                Coordinates position = new Coordinates(x,y);
+        for (int x = 0; x < this.size.getHeight(); x++) {
+            for (int y = 0; y < this.size.getWidth(); y++) {
+                Coordinates position = new Coordinates(x, y);
                 this.revealSquare(position);
                 revealedField += field[x][y].toString();
             }
@@ -62,22 +63,14 @@ public class Field {
 
     public boolean isEmpty() {
         boolean isEmpty = true;
-        for(int x = 0; x < this.getHeight(); x++) {
-            for(int y = 0; y < this.getWidth(); y++) {
-                if(field[x][y] instanceof MineSquare) {
+        for (int x = 0; x < this.size.getHeight(); x++) {
+            for (int y = 0; y < this.size.getWidth(); y++) {
+                if (field[x][y] instanceof MineSquare) {
                     isEmpty = false;
                 }
             }
         }
         return isEmpty;
-    }
-
-    public int getHeight() {
-        return this.field.length;
-    }
-
-    public int getWidth() {
-        return this.field[0].length;
     }
 
     public boolean squareIsAMine(Coordinates position) {
@@ -93,10 +86,10 @@ public class Field {
     }
 
     private void addHintsToField() {
-        for(int x = 0; x < this.getHeight(); x++) {
-            for (int y = 0; y < this.getWidth(); y++) {
-                Coordinates position = new Coordinates(x,y);
-                if(squareIsAMine(position)) {
+        for (int x = 0; x < this.size.getHeight(); x++) {
+            for (int y = 0; y < this.size.getWidth(); y++) {
+                Coordinates position = new Coordinates(x, y);
+                if (squareIsAMine(position)) {
                     increaseHintCountAround(position);
                 }
             }
@@ -106,10 +99,10 @@ public class Field {
     private void increaseHintCountAround(Coordinates position) {
         int currentX = position.getX();
         int currentY = position.getY();
-        for(int x = currentX - 1; x <= currentX + 1; x++) {
-            if(!(isOutOfBounds(x, this.getHeight())))
-                for(int y = currentY - 1; y <= currentY + 1; y++) {
-                    if(!(isOutOfBounds(y, this.getWidth()))) {
+        for (int x = currentX - 1; x <= currentX + 1; x++) {
+            if (!(isOutOfBounds(x, this.size.getHeight())))
+                for (int y = currentY - 1; y <= currentY + 1; y++) {
+                    if (!(isOutOfBounds(y, this.size.getWidth()))) {
                         field[x][y].increaseHintCount();
                     }
                 }
@@ -117,7 +110,7 @@ public class Field {
     }
 
     private boolean isOutOfBounds(int position, int maxValue) {
-        if((position < 0) || (position >= maxValue)) {
+        if ((position < 0) || (position >= maxValue)) {
             return true;
         }
         return false;
