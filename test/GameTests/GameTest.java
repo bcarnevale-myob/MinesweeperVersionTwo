@@ -1,5 +1,6 @@
 package GameTests;
 
+import Field.Coordinates;
 import Game.Game;
 import MinePlacerTests.PredictableRandom;
 import org.junit.jupiter.api.Test;
@@ -19,8 +20,8 @@ public class GameTest {
 
         TestWriter testWriter = new TestWriter();
         Game game = new Game(new TestReader(userResponses), testWriter);
-        int[] intsToReturn = {2,0,0,1,0,0,1};
-        game.setUpGame(new PredictableRandom(intsToReturn));
+        Coordinates[] minePositions = {new Coordinates(0,0), new Coordinates(1,0), new Coordinates(0,1)};
+        game.setUpGame(new PredictableRandom(3, minePositions));
         game.play();
 
         ArrayList<String> messagesReceived = testWriter.messagesReceived;
