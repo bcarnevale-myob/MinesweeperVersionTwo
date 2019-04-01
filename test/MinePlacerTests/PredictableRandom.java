@@ -1,15 +1,18 @@
 package MinePlacerTests;
 
+import Field.Coordinates;
 import MinePlacer.IRandom;
 
 public class PredictableRandom implements IRandom {
 
-    private int[] intsToReturn;
-    private int callCounter = -1;
+    private final int numberOfMines;
+    private final Coordinates[] minePositions;
+    private int callCounter = 0;
     private int upperBound;
 
-    public PredictableRandom(int[] intsToReturn) {
-        this.intsToReturn = intsToReturn;
+    public PredictableRandom(int numberOfMines, Coordinates[] minePositions) {
+        this.numberOfMines = numberOfMines;
+        this.minePositions = minePositions;
     }
 
     @Override
@@ -17,7 +20,17 @@ public class PredictableRandom implements IRandom {
         this.upperBound = upperBound;
         callCounter++;
 
-        return intsToReturn[callCounter];
+        if (callCounter == 1) {
+            return numberOfMines;
+        }
+
+        int minePositionIndex = (callCounter / 2) - 1;
+
+        if (callCounter % 2 == 0) {
+            return minePositions[minePositionIndex].getX();
+        }
+
+        return minePositions[minePositionIndex].getY();
     }
 
     public int getUpperBound() {
