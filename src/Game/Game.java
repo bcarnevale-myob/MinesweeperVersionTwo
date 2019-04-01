@@ -65,7 +65,4 @@ public class Game {
 
     }
 
-    public String revealField() {
-        return this.field.getRevealedField();
-    }
 }
