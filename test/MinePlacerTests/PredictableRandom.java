@@ -5,13 +5,15 @@ import MinePlacer.IRandom;
 
 public class PredictableRandom implements IRandom {
 
-    private final int numberOfMines;
+    private final int numberOfMinesMinusOne;
     private final Coordinates[] minePositions;
     private int callCounter = 0;
     private int upperBound;
 
     public PredictableRandom(int numberOfMines, Coordinates[] minePositions) {
-        this.numberOfMines = numberOfMines;
+        // Since RandomMinePlacer adds 1 to the random value returned from the random number source,
+        // we subtract one here so that the desired number of mines is placed
+        this.numberOfMinesMinusOne = numberOfMines - 1;
         this.minePositions = minePositions;
     }
 
@@ -21,7 +23,7 @@ public class PredictableRandom implements IRandom {
         callCounter++;
 
         if (callCounter == 1) {
-            return numberOfMines;
+            return numberOfMinesMinusOne;
         }
 
         int minePositionIndex = (callCounter / 2) - 1;
@@ -35,9 +37,5 @@ public class PredictableRandom implements IRandom {
 
     public int getUpperBound() {
         return this.upperBound;
-    }
-
-    public int getCallCounter() {
-        return callCounter;
     }
 }
