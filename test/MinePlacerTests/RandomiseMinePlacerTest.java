@@ -19,8 +19,8 @@ public class RandomiseMinePlacerTest {
 
     @Test
     public void whenNextIntIsCalledTheCorrectValueIsPassedAsTheUpperBoundArgumentForNumberOfMines() {
-        int[] intsToReturn = new int[1];
-        PredictableRandom predictableRandom = new PredictableRandom(intsToReturn);
+        Coordinates[] minePositions = new Coordinates[1];
+        PredictableRandom predictableRandom = new PredictableRandom(1, minePositions);
         Size fieldSize = new Size(5, 5);
         IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
         minePlacer.numberOfMines();
@@ -32,9 +32,8 @@ public class RandomiseMinePlacerTest {
 
     @Test
     public void whenNextIntIsCalledOnNumberOfMinesTheResultIsTheValueGeneratedPlusOne() {
-        int[] intsToReturn = new int[1];
-        intsToReturn[0] = 4;
-        PredictableRandom predictableRandom = new PredictableRandom(intsToReturn);
+        Coordinates[] minePositions = new Coordinates[1];
+        PredictableRandom predictableRandom = new PredictableRandom(4, minePositions);
         Size fieldSize = new Size(5, 5);
         IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
 
@@ -45,9 +44,8 @@ public class RandomiseMinePlacerTest {
 
     @Test
     public void whenNumberOfMinesIsCalledThenCallCounterIsOne() {
-        int[] intsToReturn = new int[1];
-        intsToReturn[0] = 4;
-        PredictableRandom predictableRandom = new PredictableRandom(intsToReturn);
+        Coordinates[] minePositions = new Coordinates[1];
+        PredictableRandom predictableRandom = new PredictableRandom(4, minePositions);
         Size fieldSize = new Size(5, 5);
         IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
 
