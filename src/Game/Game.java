@@ -11,14 +11,6 @@ public class Game {
     private IWriter writer;
     private Field field;
 
-    /// PROPERTY INJECTION, We aren't using this for now, it is here for demonstration porpoises
-    private IRandom randomProperty = new RealRandom(); // Property Injection
-
-    public void setRandomProperty(IRandom random) {
-        this.randomProperty = random;
-    }
-    ///
-
     public Game(IReader reader, IWriter writer) {
 
         this.writer = writer;
