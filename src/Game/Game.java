@@ -10,11 +10,13 @@ public class Game {
     private IReader reader;
     private IWriter writer;
     private Field field;
+    private boolean gameIsOver;
 
     public Game(IReader reader, IWriter writer) {
 
         this.writer = writer;
         this.reader = reader;
+        this.gameIsOver = false;
 
     }
 
@@ -39,30 +41,28 @@ public class Game {
 
     public void play() {
 
-        boolean gameIsNotOver = true;
+        String userEnterHit = reader.prompt("Select your hit:");
 
-        while(gameIsNotOver) {
+        String[] userHitCoordinates = userEnterHit.split(",");
+        int userHitX = Integer.parseInt(userHitCoordinates[0]);
+        int userHitY = Integer.parseInt(userHitCoordinates[1]);
 
-            String userEnterHit = reader.prompt("Select your hit:");
+        Coordinates userHitCoord = new Coordinates(userHitX, userHitY);
 
-            String[] userHitCoordinates = userEnterHit.split(",");
-            int userHitX = Integer.parseInt(userHitCoordinates[0]);
-            int userHitY = Integer.parseInt(userHitCoordinates[1]);
+        field.revealSquare(userHitCoord);
 
-            Coordinates userHitCoord = new Coordinates(userHitX, userHitY);
+        writer.write(field.getPlayerField());
 
-            field.revealSquare(userHitCoord);
-
-            writer.write(field.getPlayerField());
-
-            if(field.squareIsAMine(userHitCoord)) {
-                writer.write("You hit a mine! GAME OVER.");
-                writer.write(field.getRevealedField());
-                gameIsNotOver = false;
-            }
-
+        if(field.squareIsAMine(userHitCoord)) {
+            writer.write("You hit a mine! GAME OVER.");
+            writer.write(field.getRevealedField());
+            this.gameIsOver = true;
         }
 
+    }
+
+    public boolean getGameIsOver() {
+        return this.gameIsOver;
     }
 
 }
