@@ -18,17 +18,27 @@ public class Game {
         this.reader = reader;
         this.gameIsOver = false;
 
+        welcomeMessage();
+
     }
 
-    public void setUpGame(IRandom random) {
-
+    private void welcomeMessage() {
         this.writer.write("Welcome To MineSweeper!" + "\n\n" + "Let's Play..." + "\n");
+    }
 
-        String height = this.reader.prompt("How tall do you want your field?");
+    public Size getUserInputForFieldSize() {
 
-        String width = this.reader.prompt("How wide do you want your field?");
+        String fieldSizeInput = this.reader.prompt("What size would you like your field?");
 
-        Size fieldSize = new Size(Integer.parseInt(height), Integer.parseInt(width));
+        String[] fieldSizeInputSplit = fieldSizeInput.split(",");
+        int height = Integer.parseInt(fieldSizeInputSplit[0]);
+        int width = Integer.parseInt(fieldSizeInputSplit[1]);
+
+        return new Size(height, width);
+    }
+
+    public void setUpGame(IRandom random, Size fieldSize) {
+
         this.field = new Field(fieldSize, new RandomMinePlacer(fieldSize, random));
 
         this.writer.write(field.getPlayerField());
@@ -36,7 +46,7 @@ public class Game {
     }
 
     public void setUpGame() {
-        setUpGame(new RealRandom());
+        setUpGame(new RealRandom(), getUserInputForFieldSize());
     }
 
     public void play() {
