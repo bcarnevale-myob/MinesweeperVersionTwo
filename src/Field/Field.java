@@ -110,10 +110,7 @@ public class Field {
     }
 
     private boolean isOutOfBounds(int coordinate, int maxValue) {
-        if ((coordinate < 0) || (coordinate >= maxValue)) {
-            return true;
-        }
-        return false;
+        return (coordinate < 0) || (coordinate >= maxValue);
     }
 
 }
