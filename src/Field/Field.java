@@ -37,7 +37,7 @@ public class Field {
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
                 Coordinates position = new Coordinates(x, y);
-                if ((squareIsAMine(position)) && (field[x][y].isRevealed())) {
+                if ((squareIsAMineAt(position)) && (field[x][y].isRevealed())) {
                     return getRevealedField();
                 }
                 playerField += field[x][y].toString();
@@ -73,32 +73,32 @@ public class Field {
         return isEmpty;
     }
 
-    public boolean squareIsAMine(Coordinates position) {
-        int row = position.getX();
-        int col = position.getY();
+    public boolean squareIsAMineAt(Coordinates coordinates) {
+        int row = coordinates.getX();
+        int col = coordinates.getY();
         return field[row][col].isAMine();
     }
 
-    public void revealSquare(Coordinates position) {
-        int row = position.getX();
-        int col = position.getY();
+    public void revealSquare(Coordinates coordinates) {
+        int row = coordinates.getX();
+        int col = coordinates.getY();
         field[row][col].reveal();
     }
 
     private void addHintsToField() {
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
-                Coordinates position = new Coordinates(x, y);
-                if (squareIsAMine(position)) {
-                    increaseHintCountAround(position);
+                Coordinates coordinates = new Coordinates(x, y);
+                if (squareIsAMineAt(coordinates)) {
+                    increaseHintCountAround(coordinates);
                 }
             }
         }
     }
 
-    private void increaseHintCountAround(Coordinates position) {
-        int currentX = position.getX();
-        int currentY = position.getY();
+    private void increaseHintCountAround(Coordinates coordinates) {
+        int currentX = coordinates.getX();
+        int currentY = coordinates.getY();
         for (int x = currentX - 1; x <= currentX + 1; x++) {
             if (!(isOutOfBounds(x, this.size.getHeight())))
                 for (int y = currentY - 1; y <= currentY + 1; y++) {
@@ -109,8 +109,8 @@ public class Field {
         }
     }
 
-    private boolean isOutOfBounds(int position, int maxValue) {
-        if ((position < 0) || (position >= maxValue)) {
+    private boolean isOutOfBounds(int coordinate, int maxValue) {
+        if ((coordinate < 0) || (coordinate >= maxValue)) {
             return true;
         }
         return false;

@@ -3,14 +3,14 @@ package MinePlacerTests;
 import Field.Coordinates;
 import MinePlacer.IRandom;
 
-public class PredictableRandom implements IRandom {
+public class PredictableNumberGenerator implements IRandom {
 
     private final int numberOfMinesMinusOne;
     private final Coordinates[] minePositions;
     private int callCounter = 0;
     private int upperBound;
 
-    public PredictableRandom(int numberOfMines, Coordinates[] minePositions) {
+    public PredictableNumberGenerator(int numberOfMines, Coordinates[] minePositions) {
         // Since RandomMinePlacer adds 1 to the random value returned from the random number source,
         // we subtract one here so that the desired number of mines is placed
         this.numberOfMinesMinusOne = numberOfMines - 1;

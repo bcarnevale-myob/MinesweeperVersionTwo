@@ -2,11 +2,11 @@ package MinePlacer;
 
 import java.util.Random;
 
-public class RealRandom implements IRandom {
+public class RealRandomNumberGenerator implements IRandom {
 
     private final Random randomNumberGenerator;
 
-    public RealRandom() {
+    public RealRandomNumberGenerator() {
         this.randomNumberGenerator = new Random();
     }
 
