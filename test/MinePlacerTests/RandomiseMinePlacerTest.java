@@ -31,9 +31,9 @@ public class RandomiseMinePlacerTest {
     }
 
     @Test
-    public void whenNextIntIsCalledOnNumberOfMinesTheResultIsTheValueGeneratedPlusOne() {
+    public void whenNextIntIsCalledOnNumberOfMinesTheResultIsTheValueGenerated() {
         Coordinates[] minePositions = new Coordinates[1];
-        PredictableRandom predictableRandom = new PredictableRandom(4, minePositions);
+        PredictableRandom predictableRandom = new PredictableRandom(5, minePositions);
         Size fieldSize = new Size(5, 5);
         IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
 

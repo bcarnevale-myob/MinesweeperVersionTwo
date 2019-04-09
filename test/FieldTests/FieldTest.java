@@ -26,11 +26,10 @@ class FieldTest {
 
         Field field = new Field(new Size(3, 4), new PredictableMinePlacer(mines));
 
-        int fieldHeight = field.getHeight();
-        int fieldWidth = field.getWidth();
+        String fieldHeight = field.getPlayerField();
 
-        assertEquals(3, fieldHeight);
-        assertEquals(4, fieldWidth);
+        assertEquals(3, fieldHeight.split("\n").length);
+        assertEquals(4, fieldHeight.split("\n")[0].length());
     }
 
     @Test
