@@ -3,7 +3,7 @@ package GameTests;
 import Field.Coordinates;
 import Field.Size;
 import Game.Game;
-import MinePlacerTests.PredictableRandom;
+import MinePlacerTests.PredictableNumberGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class GameTest {
         TestWriter testWriter = new TestWriter();
         Game game = new Game(new TestReader(userResponses), testWriter);
         Coordinates[] minePositions = {new Coordinates(0,0), new Coordinates(1,0), new Coordinates(0,1)};
-        game.setUpGame(new PredictableRandom(3, minePositions), new Size(4, 3));
+        game.setUpGame(new PredictableNumberGenerator(3, minePositions), new Size(4, 3));
         game.play();
 
         ArrayList<String> messagesReceived = testWriter.messagesReceived;

@@ -2,6 +2,6 @@ package MinePlacer;
 
 public interface IRandom {
 
-    int nextInt(int i);
+    int nextInt(int upperBound);
 
 }

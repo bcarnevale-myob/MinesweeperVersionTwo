@@ -76,7 +76,7 @@ class FieldTest {
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        assertTrue(field.squareIsAMine(new Coordinates(0,1)));
+        assertTrue(field.squareIsAMineAt(new Coordinates(0,1)));
     }
 
     @Test
@@ -86,7 +86,7 @@ class FieldTest {
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        assertFalse(field.squareIsAMine(new Coordinates(1,1)));
+        assertFalse(field.squareIsAMineAt(new Coordinates(1,1)));
     }
 
 }

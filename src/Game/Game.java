@@ -3,7 +3,7 @@ package Game;
 import Field.*;
 import MinePlacer.IRandom;
 import MinePlacer.RandomMinePlacer;
-import MinePlacer.RealRandom;
+import MinePlacer.RealRandomNumberGenerator;
 
 public class Game {
 
@@ -46,24 +46,24 @@ public class Game {
     }
 
     public void setUpGame() {
-        setUpGame(new RealRandom(), getUserInputForFieldSize());
+        setUpGame(new RealRandomNumberGenerator(), getUserInputForFieldSize());
     }
 
     public void play() {
 
-        String userEnterHit = reader.prompt("Select your hit:");
+        String userHitEntry = reader.prompt("Select your hit:");
 
-        String[] userHitCoordinates = userEnterHit.split(",");
-        int userHitX = Integer.parseInt(userHitCoordinates[0]);
-        int userHitY = Integer.parseInt(userHitCoordinates[1]);
+        String[] userHitEntrySplit = userHitEntry.split(",");
+        int userHitX = Integer.parseInt(userHitEntrySplit[0]);
+        int userHitY = Integer.parseInt(userHitEntrySplit[1]);
 
-        Coordinates userHitCoord = new Coordinates(userHitX, userHitY);
+        Coordinates userHitCoordinates = new Coordinates(userHitX, userHitY);
 
-        field.revealSquare(userHitCoord);
+        field.revealSquare(userHitCoordinates);
 
         writer.write(field.getPlayerField());
 
-        if(field.squareIsAMine(userHitCoord)) {
+        if(field.squareIsAMineAt(userHitCoordinates)) {
             writer.write("You hit a mine! GAME OVER.");
             writer.write(field.getRevealedField());
             this.gameIsOver = true;
