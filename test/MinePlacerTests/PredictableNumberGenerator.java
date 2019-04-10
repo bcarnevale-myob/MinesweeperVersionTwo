@@ -26,6 +26,10 @@ public class PredictableNumberGenerator implements IRandom {
             return numberOfMinesMinusOne;
         }
 
+        return getMinePositions();
+    }
+
+    private int getMinePositions() {
         int minePositionIndex = (callCounter / 2) - 1;
 
         if (callCounter % 2 == 0) {
