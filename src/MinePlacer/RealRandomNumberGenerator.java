@@ -11,8 +11,8 @@ public class RealRandomNumberGenerator implements IRandom {
     }
 
     @Override
-    public int nextInt(int i) {
-        return randomNumberGenerator.nextInt(i);
+    public int nextInt(int maxAcceptedValue) {
+        return randomNumberGenerator.nextInt(maxAcceptedValue);
     }
 
 }

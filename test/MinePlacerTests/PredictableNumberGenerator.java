@@ -18,8 +18,8 @@ public class PredictableNumberGenerator implements IRandom {
     }
 
     @Override
-    public int nextInt(int upperBound) {
-        this.upperBound = upperBound;
+    public int nextInt(int maxAcceptedValue) {
+        this.upperBound = maxAcceptedValue;
         callCounter++;
 
         if (callCounter == 1) {

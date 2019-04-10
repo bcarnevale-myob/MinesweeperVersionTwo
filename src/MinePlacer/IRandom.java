@@ -2,6 +2,6 @@ package MinePlacer;
 
 public interface IRandom {
 
-    int nextInt(int upperBound);
+    int nextInt(int maxAcceptedValue);
 
 }
