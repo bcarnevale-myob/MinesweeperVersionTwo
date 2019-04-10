@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PlayerFieldTest {
 
     @Test
-    public void canRevealThreeSquaresAndDisplayBoardForUser() {
+    public void canDisplayBoardForUserCorrectlyWhenThreeSquaresHaveBeenRevealed() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 1));
 
@@ -53,7 +53,7 @@ public class PlayerFieldTest {
     }
 
     @Test
-    public void ifPlayerRevealsASquareAndThenAMineAllMinesAreRevealedAsWellAsTheirFirstChoiceOfSquare() {
+    public void ifPlayerRevealsAHintSquareAndThenAMineAllMinesAreRevealedAsWellAsTheirFirstChoiceOfSquare() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 1));
         mines.add(new Coordinates(0, 2));

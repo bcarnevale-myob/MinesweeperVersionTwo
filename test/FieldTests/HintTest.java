@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class HintTest {
 
     @Test
-    public void canPlaceOneMineAndHintCountOfAdjacentSquaresIncreasesByOne() {
+    public void canCorrectlyCalculateHintCountWhenAdjacentSquaresTouchOneMine() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 0));
 
@@ -30,7 +30,7 @@ public class HintTest {
     }
 
     @Test
-    public void canPlaceOneMineInTheCentreAndHintCountOfAdjacentSquaresIncreasesByOne() {
+    public void canCorrectlyCalculateHintCountWhenAMineIsPlacedInTheCentreOfTheField() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(2, 2));
 
@@ -49,7 +49,7 @@ public class HintTest {
     }
 
     @Test
-    public void canPlaceTwoMinesAndHintCountOfAdjacentSquaresIncreasesByOne() {
+    public void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingTwoMines() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 0));
         mines.add(new Coordinates(2, 2));
@@ -67,7 +67,7 @@ public class HintTest {
     }
 
     @Test
-    public void canPlaceThreeMinesAndHintCountOfAdjacentSquaresIncreasesByOne() {
+    public void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingThreeMines() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 0));
         mines.add(new Coordinates(2, 2));

@@ -2,8 +2,9 @@ package Field;
 
 public abstract class Square {
 
-    private boolean isRevealed = false;
     private int hintCount = 0;
+
+    private boolean isRevealed = false;
 
     public boolean isRevealed() {
         return isRevealed;
@@ -13,13 +14,14 @@ public abstract class Square {
         isRevealed = true;
     }
 
-    public int getHintCount() {
-        return hintCount;
-    }
+    public abstract boolean isAMine();
 
     public void increaseHintCount() {
         hintCount++;
     }
 
-    public abstract boolean isAMine();
+    public int getHintCount() {
+        return hintCount;
+    }
+
 }

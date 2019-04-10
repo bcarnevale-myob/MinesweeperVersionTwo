@@ -33,7 +33,7 @@ class FieldTest {
     }
 
     @Test
-    public void canPlaceAMineAndRevealTheBoardWithAllHints() {
+    public void canRevealTheBoardWithAllHintsWhenOneMineIsPlaced() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 0));
 
@@ -51,7 +51,7 @@ class FieldTest {
     }
 
     @Test
-    public void canRevealOneSquareAndDisplayFieldForUser() {
+    public void canDisplayFieldForUserWhenOneSquareIsRevealed() {
         ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
         mines.add(new Coordinates(0, 1));
 
