@@ -19,7 +19,7 @@ public class RandomiseMinePlacerTest {
 
     @Test
     public void whenNextIntIsCalledTheCorrectValueIsPassedAsTheUpperBoundArgumentForNumberOfMines() {
-        Coordinates[] minePositions = new Coordinates[1];
+        Coordinate[] minePositions = new Coordinate[1];
         PredictableNumberGenerator predictableRandom = new PredictableNumberGenerator(1, minePositions);
         Size fieldSize = new Size(5, 5);
         IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
@@ -32,7 +32,7 @@ public class RandomiseMinePlacerTest {
 
     @Test
     public void whenNextIntIsCalledOnNumberOfMinesTheResultIsTheValueGenerated() {
-        Coordinates[] minePositions = new Coordinates[1];
+        Coordinate[] minePositions = new Coordinate[1];
         PredictableNumberGenerator predictableRandom = new PredictableNumberGenerator(5, minePositions);
         Size fieldSize = new Size(5, 5);
         IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);

@@ -12,14 +12,14 @@ public class PlayerFieldTest {
 
     @Test
     public void canDisplayBoardForUserCorrectlyWhenThreeSquaresHaveBeenRevealed() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 1));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 1));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(new Coordinates(0, 0));
-        field.revealSquare(new Coordinates(0, 2));
-        field.revealSquare(new Coordinates(2, 2));
+        field.revealSquare(new Coordinate(0, 0));
+        field.revealSquare(new Coordinate(0, 2));
+        field.revealSquare(new Coordinate(2, 2));
         String actualField = field.getPlayerField();
 
         String expectedField =
@@ -33,14 +33,14 @@ public class PlayerFieldTest {
 
     @Test
     public void ifPlayerRevealsAMineAllMinesAreRevealed() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 1));
-        mines.add(new Coordinates(0, 2));
-        mines.add(new Coordinates(2, 2));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 1));
+        mines.add(new Coordinate(0, 2));
+        mines.add(new Coordinate(2, 2));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(new Coordinates(0, 1));
+        field.revealSquare(new Coordinate(0, 1));
         String actualField = field.getPlayerField();
 
         String expectedField =
@@ -54,15 +54,15 @@ public class PlayerFieldTest {
 
     @Test
     public void ifPlayerRevealsAHintSquareAndThenAMineAllMinesAreRevealedAsWellAsTheirFirstChoiceOfSquare() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 1));
-        mines.add(new Coordinates(0, 2));
-        mines.add(new Coordinates(2, 2));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 1));
+        mines.add(new Coordinate(0, 2));
+        mines.add(new Coordinate(2, 2));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(new Coordinates(0, 0));
-        field.revealSquare(new Coordinates(0, 1));
+        field.revealSquare(new Coordinate(0, 0));
+        field.revealSquare(new Coordinate(0, 1));
         String actualField = field.getPlayerField();
 
         String expectedField =
@@ -77,18 +77,18 @@ public class PlayerFieldTest {
     @Test
     public void ifPlayerFieldIsCalledMultipleTimesTheHintsContainCorrectValue() {
 
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 1));
-        mines.add(new Coordinates(0, 2));
-        mines.add(new Coordinates(2, 2));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 1));
+        mines.add(new Coordinate(0, 2));
+        mines.add(new Coordinate(2, 2));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(new Coordinates(0, 0));
+        field.revealSquare(new Coordinate(0, 0));
         field.getPlayerField();
-        field.revealSquare(new Coordinates(2, 4));
+        field.revealSquare(new Coordinate(2, 4));
         field.getPlayerField();
-        field.revealSquare(new Coordinates(0, 1));
+        field.revealSquare(new Coordinate(0, 1));
         String actualField = field.getPlayerField();
 
         String expectedField =

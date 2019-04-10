@@ -12,7 +12,7 @@ class FieldTest {
 
     @Test
     public void canCreateAnEmptyField() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
 
         Field field = new Field(new Size(4, 4), new PredictableMinePlacer(mines));
 
@@ -21,8 +21,8 @@ class FieldTest {
 
     @Test
     public void canCreateAFieldOfDifferentSizes() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(2, 3));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(2, 3));
 
         Field field = new Field(new Size(3, 4), new PredictableMinePlacer(mines));
 
@@ -34,8 +34,8 @@ class FieldTest {
 
     @Test
     public void canRevealTheBoardWithAllHintsWhenOneMineIsPlaced() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 0));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 0));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
@@ -52,12 +52,12 @@ class FieldTest {
 
     @Test
     public void canDisplayFieldForUserWhenOneSquareIsRevealed() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 1));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 1));
 
         Field field = new Field(new Size (4,5), new PredictableMinePlacer(mines));
 
-        field.revealSquare(new Coordinates(0,0));
+        field.revealSquare(new Coordinate(0,0));
         String actualField = field.getPlayerField();
 
         String expectedField =
@@ -71,22 +71,22 @@ class FieldTest {
 
     @Test
     public void canCheckIfCurrentSquareIsAMineSquare() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 1));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 1));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        assertTrue(field.squareIsAMineAt(new Coordinates(0,1)));
+        assertTrue(field.squareIsAMineAt(new Coordinate(0,1)));
     }
 
     @Test
     public void canCheckIfCurrentSquareIsNotAMineSquare() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 1));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 1));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 
-        assertFalse(field.squareIsAMineAt(new Coordinates(1,1)));
+        assertFalse(field.squareIsAMineAt(new Coordinate(1,1)));
     }
 
 }

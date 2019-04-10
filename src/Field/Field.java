@@ -26,7 +26,7 @@ public class Field {
         int numberOfMinesToPlace = minePlacer.numberOfMines();
 
         for (int i = 0; i < numberOfMinesToPlace; i++) {
-            Coordinates minePosition = minePlacer.nextCoordinate();
+            Coordinate minePosition = minePlacer.nextCoordinate();
             field[minePosition.getX()][minePosition.getY()] = new MineSquare();
         }
     }
@@ -36,14 +36,16 @@ public class Field {
 
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
-                Coordinates position = new Coordinates(x, y);
-                if ((squareIsAMineAt(position)) && (field[x][y].isRevealed())) {
+                Coordinate coordinate = new Coordinate(x, y);
+                if ((squareIsAMineAt(coordinate)) && (field[x][y].isRevealed())) {
                     return getRevealedField();
                 }
                 playerField += field[x][y].toString();
             }
             playerField += "\n";
         }
+
+
         return playerField;
     }
 
@@ -52,8 +54,8 @@ public class Field {
 
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
-                Coordinates position = new Coordinates(x, y);
-                this.revealSquare(position);
+                Coordinate coordinate = new Coordinate(x, y);
+                this.revealSquare(coordinate);
                 revealedField += field[x][y].toString();
             }
             revealedField += "\n";
@@ -73,32 +75,32 @@ public class Field {
         return isEmpty;
     }
 
-    public boolean squareIsAMineAt(Coordinates coordinates) {
-        int row = coordinates.getX();
-        int col = coordinates.getY();
+    public boolean squareIsAMineAt(Coordinate coordinate) {
+        int row = coordinate.getX();
+        int col = coordinate.getY();
         return field[row][col].isAMine();
     }
 
-    public void revealSquare(Coordinates coordinates) {
-        int row = coordinates.getX();
-        int col = coordinates.getY();
+    public void revealSquare(Coordinate coordinate) {
+        int row = coordinate.getX();
+        int col = coordinate.getY();
         field[row][col].reveal();
     }
 
     private void addHintsToField() {
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
-                Coordinates coordinates = new Coordinates(x, y);
-                if (squareIsAMineAt(coordinates)) {
-                    increaseHintCountAround(coordinates);
+                Coordinate coordinate = new Coordinate(x, y);
+                if (squareIsAMineAt(coordinate)) {
+                    increaseHintCountAround(coordinate);
                 }
             }
         }
     }
 
-    private void increaseHintCountAround(Coordinates coordinates) {
-        int currentX = coordinates.getX();
-        int currentY = coordinates.getY();
+    private void increaseHintCountAround(Coordinate coordinate) {
+        int currentX = coordinate.getX();
+        int currentY = coordinate.getY();
         for (int x = currentX - 1; x <= currentX + 1; x++) {
             if (!(isOutOfBounds(x, this.size.getHeight())))
                 for (int y = currentY - 1; y <= currentY + 1; y++) {

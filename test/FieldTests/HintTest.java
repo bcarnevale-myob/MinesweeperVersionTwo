@@ -12,8 +12,8 @@ public class HintTest {
 
     @Test
     public void canCorrectlyCalculateHintCountWhenAdjacentSquaresTouchOneMine() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 0));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 0));
 
         Field field = new Field(new Size(5, 5), new PredictableMinePlacer(mines));
 
@@ -31,8 +31,8 @@ public class HintTest {
 
     @Test
     public void canCorrectlyCalculateHintCountWhenAMineIsPlacedInTheCentreOfTheField() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(2, 2));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(2, 2));
 
         Field field = new Field(new Size(5, 5), new PredictableMinePlacer(mines));
 
@@ -50,9 +50,9 @@ public class HintTest {
 
     @Test
     public void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingTwoMines() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 0));
-        mines.add(new Coordinates(2, 2));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 0));
+        mines.add(new Coordinate(2, 2));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
         String actualField = field.getRevealedField();
@@ -68,10 +68,10 @@ public class HintTest {
 
     @Test
     public void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingThreeMines() {
-        ArrayList<Coordinates> mines = new ArrayList<Coordinates>();
-        mines.add(new Coordinates(0, 0));
-        mines.add(new Coordinates(2, 2));
-        mines.add(new Coordinates(2, 1));
+        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        mines.add(new Coordinate(0, 0));
+        mines.add(new Coordinate(2, 2));
+        mines.add(new Coordinate(2, 1));
 
         Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
 

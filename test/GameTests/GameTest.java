@@ -1,6 +1,6 @@
 package GameTests;
 
-import Field.Coordinates;
+import Field.Coordinate;
 import Field.Size;
 import Game.Game;
 import MinePlacerTests.PredictableNumberGenerator;
@@ -20,7 +20,7 @@ public class GameTest {
 
         TestWriter testWriter = new TestWriter();
         Game game = new Game(new TestReader(userResponses), testWriter);
-        Coordinates[] minePositions = {new Coordinates(0,0), new Coordinates(1,0), new Coordinates(0,1)};
+        Coordinate[] minePositions = {new Coordinate(0,0), new Coordinate(1,0), new Coordinate(0,1)};
         game.setUpGame(new PredictableNumberGenerator(3, minePositions), new Size(4, 3));
         game.play();
 

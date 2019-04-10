@@ -1,6 +1,6 @@
 package MinePlacer;
 
-import Field.Coordinates;
+import Field.Coordinate;
 import Field.Size;
 
 public class RandomMinePlacer implements IMinePlacer {
@@ -21,7 +21,7 @@ public class RandomMinePlacer implements IMinePlacer {
     }
 
     @Override
-    public Coordinates nextCoordinate() {
-        return new Coordinates(randomNumberGenerator.nextInt(xUpper), randomNumberGenerator.nextInt(yUpper));
+    public Coordinate nextCoordinate() {
+        return new Coordinate(randomNumberGenerator.nextInt(xUpper), randomNumberGenerator.nextInt(yUpper));
     }
 }

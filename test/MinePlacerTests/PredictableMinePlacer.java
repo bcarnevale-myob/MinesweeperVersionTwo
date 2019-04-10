@@ -1,16 +1,16 @@
 package MinePlacerTests;
 
-import Field.Coordinates;
+import Field.Coordinate;
 import MinePlacer.IMinePlacer;
 
 import java.util.List;
 
 public class PredictableMinePlacer implements IMinePlacer {
 
-    private List<Coordinates> mines;
+    private List<Coordinate> mines;
     private int callCounter = -1;
 
-    public PredictableMinePlacer(List<Coordinates> mines) {
+    public PredictableMinePlacer(List<Coordinate> mines) {
         this.mines = mines;
     }
 
@@ -20,7 +20,7 @@ public class PredictableMinePlacer implements IMinePlacer {
     }
 
     @Override
-    public Coordinates nextCoordinate() {
+    public Coordinate nextCoordinate() {
         callCounter++;
 
         if (callCounter == mines.size()) {

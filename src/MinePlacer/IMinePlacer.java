@@ -1,11 +1,11 @@
 package MinePlacer;
 
-import Field.Coordinates;
+import Field.Coordinate;
 
 public interface IMinePlacer {
 
     int numberOfMines();
 
-    Coordinates nextCoordinate();
+    Coordinate nextCoordinate();
 
 }

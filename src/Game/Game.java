@@ -57,7 +57,7 @@ public class Game {
         int userHitX = Integer.parseInt(userHitEntrySplit[0]);
         int userHitY = Integer.parseInt(userHitEntrySplit[1]);
 
-        Coordinates userHitCoordinates = new Coordinates(userHitX, userHitY);
+        Coordinate userHitCoordinates = new Coordinate(userHitX, userHitY);
 
         field.revealSquare(userHitCoordinates);
 
@@ -65,7 +65,7 @@ public class Game {
 
         if(field.squareIsAMineAt(userHitCoordinates)) {
             writer.write("You hit a mine! GAME OVER.");
-            writer.write(field.getRevealedField());
+            writer.write(field.getPlayerField());
             this.gameIsOver = true;
         }
 
