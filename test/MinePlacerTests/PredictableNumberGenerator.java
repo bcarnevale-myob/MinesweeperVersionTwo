@@ -1,9 +1,9 @@
 package MinePlacerTests;
 
 import Field.Coordinate;
-import MinePlacer.IRandom;
+import MinePlacer.Random;
 
-public class PredictableNumberGenerator implements IRandom {
+public class PredictableNumberGenerator implements Random {
 
     private final int numberOfMinesMinusOne;
     private final Coordinate[] minePositions;

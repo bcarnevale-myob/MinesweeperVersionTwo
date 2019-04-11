@@ -1,7 +1,7 @@
 package MinePlacerTests;
 
 import Field.*;
-import MinePlacer.IMinePlacer;
+import MinePlacer.MinePlacer;
 import MinePlacer.RandomMinePlacer;
 import MinePlacer.RealRandomNumberGenerator;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class RandomiseMinePlacerTest {
         Coordinate[] minePositions = new Coordinate[1];
         PredictableNumberGenerator predictableRandom = new PredictableNumberGenerator(1, minePositions);
         Size fieldSize = new Size(5, 5);
-        IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
+        MinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
 
         minePlacer.numberOfMines();
 
@@ -36,7 +36,7 @@ public class RandomiseMinePlacerTest {
         Coordinate[] minePositions = new Coordinate[1];
         PredictableNumberGenerator predictableRandom = new PredictableNumberGenerator(5, minePositions);
         Size fieldSize = new Size(5, 5);
-        IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
+        MinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
 
         int numberOfMines = minePlacer.numberOfMines();
 

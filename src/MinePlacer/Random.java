@@ -1,6 +1,6 @@
 package MinePlacer;
 
-public interface IRandom {
+public interface Random {
 
     int nextInt(int maxAcceptedValue);
 

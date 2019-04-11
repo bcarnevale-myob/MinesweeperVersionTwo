@@ -1,10 +1,10 @@
 package GameTests;
 
-import Game.IReader;
+import Game.Reader;
 
 import java.util.ArrayList;
 
-public class TestReader implements IReader {
+public class TestReader implements Reader {
 
     private ArrayList<String> userResponses;
     private int callCounter = -1;

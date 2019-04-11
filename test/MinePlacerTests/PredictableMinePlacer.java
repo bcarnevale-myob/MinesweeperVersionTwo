@@ -1,11 +1,11 @@
 package MinePlacerTests;
 
 import Field.Coordinate;
-import MinePlacer.IMinePlacer;
+import MinePlacer.MinePlacer;
 
 import java.util.List;
 
-public class PredictableMinePlacer implements IMinePlacer {
+public class PredictableMinePlacer implements MinePlacer {
 
     private List<Coordinate> mines;
     private int callCounter = -1;

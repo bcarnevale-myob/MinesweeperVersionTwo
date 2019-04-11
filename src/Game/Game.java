@@ -1,19 +1,18 @@
 package Game;
 
 import Field.*;
-import MinePlacer.IRandom;
+import MinePlacer.Random;
 import MinePlacer.RandomMinePlacer;
-import MinePlacer.RealRandomNumberGenerator;
 
 public class Game {
 
-    private IReader reader;
-    private IWriter writer;
-    private IRandom random;
+    private Reader reader;
+    private Writer writer;
+    private Random random;
     private Field field;
     private boolean gameIsOver;
 
-    public Game(IReader reader, IWriter writer, IRandom random) {
+    public Game(Reader reader, Writer writer, Random random) {
 
         this.writer = writer;
         this.reader = reader;

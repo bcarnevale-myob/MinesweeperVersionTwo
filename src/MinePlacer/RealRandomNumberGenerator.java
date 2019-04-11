@@ -1,13 +1,11 @@
 package MinePlacer;
 
-import java.util.Random;
+public class RealRandomNumberGenerator implements Random {
 
-public class RealRandomNumberGenerator implements IRandom {
-
-    private final Random randomNumberGenerator;
+    private final java.util.Random randomNumberGenerator;
 
     public RealRandomNumberGenerator() {
-        this.randomNumberGenerator = new Random();
+        this.randomNumberGenerator = new java.util.Random();
     }
 
     @Override

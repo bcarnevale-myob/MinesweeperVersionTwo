@@ -1,14 +1,14 @@
 package Field;
 
-import MinePlacer.IMinePlacer;
+import MinePlacer.MinePlacer;
 
 public class Field {
 
     private final Square[][] field;
-    private final IMinePlacer minePlacer;
+    private final MinePlacer minePlacer;
     private final Size size;
 
-    public Field(Size size, IMinePlacer minePlacer) {
+    public Field(Size size, MinePlacer minePlacer) {
         this.minePlacer = minePlacer;
         this.field = new Square[size.getHeight()][size.getWidth()];
         this.size = size;
