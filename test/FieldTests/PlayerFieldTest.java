@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlayerFieldTest {
+class PlayerFieldTest {
 
     @Test
-    public void canDisplayBoardForUserCorrectlyWhenThreeSquaresHaveBeenRevealed() {
+    void canDisplayBoardForUserCorrectlyWhenThreeSquaresHaveBeenRevealed() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
 
@@ -32,7 +32,7 @@ public class PlayerFieldTest {
     }
 
     @Test
-    public void ifPlayerRevealsAMineAllMinesAreRevealed() {
+    void ifPlayerRevealsAMineAllMinesAreRevealed() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
         mines.add(new Coordinate(0, 2));
@@ -53,7 +53,7 @@ public class PlayerFieldTest {
     }
 
     @Test
-    public void ifPlayerRevealsAHintSquareAndThenAMineAllMinesAreRevealedAsWellAsTheirFirstChoiceOfSquare() {
+    void ifPlayerRevealsAHintSquareAndThenAMineAllMinesAreRevealedAsWellAsTheirFirstChoiceOfSquare() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
         mines.add(new Coordinate(0, 2));
@@ -75,7 +75,7 @@ public class PlayerFieldTest {
     }
 
     @Test
-    public void ifPlayerFieldIsCalledMultipleTimesTheHintsContainCorrectValue() {
+    void ifPlayerFieldIsCalledMultipleTimesTheHintsContainCorrectValue() {
 
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
@@ -100,5 +100,4 @@ public class PlayerFieldTest {
         assertEquals(expectedField, actualField);
 
     }
-
 }

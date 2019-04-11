@@ -8,10 +8,9 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class HintTest {
-
+class HintTest {
     @Test
-    public void canCorrectlyCalculateHintCountWhenAdjacentSquaresTouchOneMine() {
+    void canCorrectlyCalculateHintCountWhenAdjacentSquaresTouchOneMine() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 0));
 
@@ -30,7 +29,7 @@ public class HintTest {
     }
 
     @Test
-    public void canCorrectlyCalculateHintCountWhenAMineIsPlacedInTheCentreOfTheField() {
+    void canCorrectlyCalculateHintCountWhenAMineIsPlacedInTheCentreOfTheField() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(2, 2));
 
@@ -49,7 +48,7 @@ public class HintTest {
     }
 
     @Test
-    public void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingTwoMines() {
+    void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingTwoMines() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 0));
         mines.add(new Coordinate(2, 2));
@@ -67,7 +66,7 @@ public class HintTest {
     }
 
     @Test
-    public void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingThreeMines() {
+    void canCorrectlyCalculateHintCountOfAdjacentSquaresTouchingThreeMines() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 0));
         mines.add(new Coordinate(2, 2));
@@ -85,5 +84,4 @@ public class HintTest {
 
         assertEquals(expectedField, actualField);
     }
-
 }

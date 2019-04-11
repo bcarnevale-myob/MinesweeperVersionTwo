@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class TestWriter implements Writer {
 
-    public ArrayList<String> messagesReceived;
+    ArrayList<String> messagesReceived;
 
-    public TestWriter() {
+    TestWriter() {
         this.messagesReceived = new ArrayList<>();
     }
 

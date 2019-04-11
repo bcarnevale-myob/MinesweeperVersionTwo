@@ -9,7 +9,7 @@ public class TestReader implements Reader {
     private ArrayList<String> userResponses;
     private int callCounter = -1;
 
-    public TestReader(ArrayList<String> userResponses) {
+    TestReader(ArrayList<String> userResponses) {
         this.userResponses = userResponses;
     }
 

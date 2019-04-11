@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GameTest {
+class GameTest {
 
     @Test
-    public void whenANewGameIsStartedTheExpectedFieldIsProduced() {
+    void whenANewGameIsStartedTheExpectedFieldIsProduced() {
 
         ArrayList<String> userResponses = new ArrayList<>();
         userResponses.add("0,0");

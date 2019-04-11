@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FieldTest {
 
     @Test
-    public void canCreateAnEmptyField() {
+    void canCreateAnEmptyField() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
 
         Field field = new Field(new Size(4, 4), new PredictableMinePlacer(mines));
@@ -20,7 +20,7 @@ class FieldTest {
     }
 
     @Test
-    public void canCreateAFieldOfDifferentSizes() {
+    void canCreateAFieldOfDifferentSizes() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(2, 3));
 
@@ -28,12 +28,15 @@ class FieldTest {
 
         String fieldHeight = field.getPlayerField();
 
-        assertEquals(3, fieldHeight.split("\n").length);
-        assertEquals(4, fieldHeight.split("\n")[0].length());
+        int actualHeight = fieldHeight.split("\n").length;
+        int actualWidth = fieldHeight.split("\n")[0].length();
+
+        assertEquals(3, actualHeight);
+        assertEquals(4, actualWidth);
     }
 
     @Test
-    public void canRevealTheBoardWithAllHintsWhenOneMineIsPlaced() {
+    void canRevealTheBoardWithAllHintsWhenOneMineIsPlaced() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 0));
 
@@ -51,7 +54,7 @@ class FieldTest {
     }
 
     @Test
-    public void canDisplayFieldForUserWhenOneSquareIsRevealed() {
+    void canDisplayFieldForUserWhenOneSquareIsRevealed() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
 
@@ -70,7 +73,7 @@ class FieldTest {
     }
 
     @Test
-    public void canCheckIfCurrentSquareIsAMineSquare() {
+    void canCheckIfCurrentSquareIsAMineSquare() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
 
@@ -80,7 +83,7 @@ class FieldTest {
     }
 
     @Test
-    public void canCheckIfCurrentSquareIsNotAMineSquare() {
+    void canCheckIfCurrentSquareIsNotAMineSquare() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
 
@@ -88,5 +91,4 @@ class FieldTest {
 
         assertFalse(field.squareIsAMineAt(new Coordinate(1,1)));
     }
-
 }
