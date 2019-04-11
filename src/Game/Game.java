@@ -9,13 +9,15 @@ public class Game {
 
     private IReader reader;
     private IWriter writer;
+    private IRandom random;
     private Field field;
     private boolean gameIsOver;
 
-    public Game(IReader reader, IWriter writer) {
+    public Game(IReader reader, IWriter writer, IRandom random) {
 
         this.writer = writer;
         this.reader = reader;
+        this.random = random;
         this.gameIsOver = false;
 
         welcomeMessage();
@@ -37,16 +39,12 @@ public class Game {
         return new Size(height, width);
     }
 
-    public void setUpGame(IRandom random, Size fieldSize) {
+    public void setUpGame(Size size) {
 
-        this.field = new Field(fieldSize, new RandomMinePlacer(fieldSize, random));
+        this.field = new Field(size, new RandomMinePlacer(size, this.random));
 
         this.writer.write(field.getPlayerField());
 
-    }
-
-    public void setUpGame() {
-        setUpGame(new RealRandomNumberGenerator(), getUserInputForFieldSize());
     }
 
     public void play() {

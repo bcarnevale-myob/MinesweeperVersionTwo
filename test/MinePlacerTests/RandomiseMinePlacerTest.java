@@ -23,6 +23,7 @@ public class RandomiseMinePlacerTest {
         PredictableNumberGenerator predictableRandom = new PredictableNumberGenerator(1, minePositions);
         Size fieldSize = new Size(5, 5);
         IMinePlacer minePlacer = new RandomMinePlacer(fieldSize, predictableRandom);
+
         minePlacer.numberOfMines();
 
         int actualResult = predictableRandom.getUpperBound();

@@ -19,9 +19,9 @@ public class GameTest {
         userResponses.add("0,0");
 
         TestWriter testWriter = new TestWriter();
-        Game game = new Game(new TestReader(userResponses), testWriter);
         Coordinate[] minePositions = {new Coordinate(0,0), new Coordinate(1,0), new Coordinate(0,1)};
-        game.setUpGame(new PredictableNumberGenerator(3, minePositions), new Size(4, 3));
+        Game game = new Game(new TestReader(userResponses), testWriter, new PredictableNumberGenerator(3, minePositions));
+        game.setUpGame(new Size(4, 3));
         game.play();
 
         ArrayList<String> messagesReceived = testWriter.messagesReceived;
