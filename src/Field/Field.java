@@ -104,8 +104,8 @@ public class Field {
         for (int x = currentX - 1; x <= currentX + 1; x++) {
             if (!(isOutOfBounds(x, this.size.getHeight())))
                 for (int y = currentY - 1; y <= currentY + 1; y++) {
-                    if (!(isOutOfBounds(y, this.size.getWidth()))) {
-                        field[x][y].increaseHintCount();
+                    if (!isOutOfBounds(y, this.size.getWidth()) && !squareIsAMineAt(new Coordinate(x,y))) {
+                        ((SafeSquare) field[x][y]).increaseHintCount();
                     }
                 }
         }

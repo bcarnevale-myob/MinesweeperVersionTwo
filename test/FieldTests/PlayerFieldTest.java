@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerFieldTest {
 
     @Test
-    void canDisplayBoardForUserCorrectlyWhenThreeSquaresHaveBeenRevealed() {
+    void displaysCorrectBoardWhen3SafeSquaresAreRevealed() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
 
@@ -32,28 +32,7 @@ class PlayerFieldTest {
     }
 
     @Test
-    void ifPlayerRevealsAMineAllMinesAreRevealed() {
-        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
-        mines.add(new Coordinate(0, 1));
-        mines.add(new Coordinate(0, 2));
-        mines.add(new Coordinate(2, 2));
-
-        Field field = new Field(new Size(4, 5), new PredictableMinePlacer(mines));
-
-        field.revealSquare(new Coordinate(0, 1));
-        String actualField = field.getPlayerField();
-
-        String expectedField =
-                        "1**10\n" +
-                        "13320\n" +
-                        "01*10\n" +
-                        "01110\n";
-
-        assertEquals(expectedField, actualField);
-    }
-
-    @Test
-    void ifPlayerRevealsAHintSquareAndThenAMineAllMinesAreRevealedAsWellAsTheirFirstChoiceOfSquare() {
+    void selectingAMineRevealsTheField() {
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
         mines.add(new Coordinate(0, 2));
@@ -75,7 +54,7 @@ class PlayerFieldTest {
     }
 
     @Test
-    void ifPlayerFieldIsCalledMultipleTimesTheHintsContainCorrectValue() {
+    void callingGetPlayerFieldMultipleTimesDoesntAffectHintCount() {
 
         ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 1));
