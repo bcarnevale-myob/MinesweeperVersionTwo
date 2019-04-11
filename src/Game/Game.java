@@ -42,7 +42,7 @@ public class Game {
 
         this.field = new Field(size, new RandomMinePlacer(size, this.random));
 
-        this.writer.write(field.getPlayerField());
+        this.writer.write(field.getCurrentField());
 
     }
 
@@ -56,13 +56,13 @@ public class Game {
 
         Coordinate userHitCoordinates = new Coordinate(userHitX, userHitY);
 
-        field.revealSquare(userHitCoordinates);
+        field.hit(userHitCoordinates);
 
-        writer.write(field.getPlayerField());
+        writer.write(field.getCurrentField());
 
-        if(field.squareIsAMineAt(userHitCoordinates)) {
+        if(field.hasMineAt(userHitCoordinates)) {
             writer.write("You hit a mine! GAME OVER.");
-            writer.write(field.getPlayerField());
+            writer.write(field.getCurrentField());
             this.gameIsOver = true;
         }
 

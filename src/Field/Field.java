@@ -31,13 +31,13 @@ public class Field {
         }
     }
 
-    public String getPlayerField() {
+    public String getCurrentField() {
         String playerField = "";
 
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
                 Coordinate coordinate = new Coordinate(x, y);
-                if ((squareIsAMineAt(coordinate)) && (field[x][y].isRevealed())) {
+                if ((hasMineAt(coordinate)) && (field[x][y].isRevealed())) {
                     return getRevealedField();
                 }
                 playerField += field[x][y].toString();
@@ -45,21 +45,22 @@ public class Field {
             playerField += "\n";
         }
 
-
         return playerField;
     }
 
+    // This method is only used by the tests, in the future we would find a way for this to be private and still testable
     public String getRevealedField() {
         String revealedField = "";
 
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
                 Coordinate coordinate = new Coordinate(x, y);
-                this.revealSquare(coordinate);
+                this.hit(coordinate);
                 revealedField += field[x][y].toString();
             }
             revealedField += "\n";
         }
+
         return revealedField;
     }
 
@@ -75,23 +76,21 @@ public class Field {
         return isEmpty;
     }
 
-    public boolean squareIsAMineAt(Coordinate coordinate) {
-        int row = coordinate.getX();
-        int col = coordinate.getY();
-        return field[row][col].isAMine();
+    public boolean hasMineAt(Coordinate coordinate) {
+
+        return field[coordinate.getX()][coordinate.getY()].isAMine();
     }
 
-    public void revealSquare(Coordinate coordinate) {
-        int row = coordinate.getX();
-        int col = coordinate.getY();
-        field[row][col].reveal();
+    public void hit(Coordinate coordinate) {
+
+        field[coordinate.getX()][coordinate.getY()].reveal();
     }
 
     private void addHintsToField() {
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
                 Coordinate coordinate = new Coordinate(x, y);
-                if (squareIsAMineAt(coordinate)) {
+                if (hasMineAt(coordinate)) {
                     increaseHintCountAround(coordinate);
                 }
             }
@@ -104,7 +103,7 @@ public class Field {
         for (int x = currentX - 1; x <= currentX + 1; x++) {
             if (!(isOutOfBounds(x, this.size.getHeight())))
                 for (int y = currentY - 1; y <= currentY + 1; y++) {
-                    if (!isOutOfBounds(y, this.size.getWidth()) && !squareIsAMineAt(new Coordinate(x,y))) {
+                    if (!isOutOfBounds(y, this.size.getWidth()) && !hasMineAt(new Coordinate(x,y))) {
                         ((SafeSquare) field[x][y]).increaseHintCount();
                     }
                 }

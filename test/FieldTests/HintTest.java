@@ -5,13 +5,14 @@ import MinePlacerTests.PredictableMinePlacer;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class HintTest {
     @Test
     void aSingleMineInTheTopLeftCornerHasAdjacentHintsOf1() {
-        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        List<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 0));
 
         Field field = new Field(new Size(5, 5), new PredictableMinePlacer(mines));
@@ -30,7 +31,7 @@ class HintTest {
 
     @Test
     void squaresAdjacentToASingleMineHaveHintCountOf1() {
-        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        List<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(2, 2));
 
         Field field = new Field(new Size(5, 5), new PredictableMinePlacer(mines));
@@ -49,7 +50,7 @@ class HintTest {
 
     @Test
     void aSquareWithTwoAdjacentMinesHaveAHintCountOf2() {
-        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        List<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 0));
         mines.add(new Coordinate(2, 2));
 
@@ -67,7 +68,7 @@ class HintTest {
 
     @Test
     void aSquareWithThreeAdjacentMinesHaveAHintCountOf3() {
-        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        List<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(0, 0));
         mines.add(new Coordinate(2, 2));
         mines.add(new Coordinate(2, 1));
@@ -86,7 +87,7 @@ class HintTest {
     }
     @Test
     void aSquareWith8AdjacentMinesHasHintOf8() {
-        ArrayList<Coordinate> mines = new ArrayList<Coordinate>();
+        List<Coordinate> mines = new ArrayList<Coordinate>();
         mines.add(new Coordinate(1, 1));
         mines.add(new Coordinate(2, 1));
         mines.add(new Coordinate(3, 1));

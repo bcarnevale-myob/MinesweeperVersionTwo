@@ -7,6 +7,7 @@ import MinePlacerTests.PredictableNumberGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,8 +15,7 @@ class GameTest {
 
     @Test
     void whenANewGameIsStartedTheExpectedFieldIsProduced() {
-
-        ArrayList<String> userResponses = new ArrayList<>();
+        List<String> userResponses = new ArrayList<>();
         userResponses.add("0,0");
 
         TestWriter testWriter = new TestWriter();
@@ -24,7 +24,7 @@ class GameTest {
         game.setUpGame(new Size(4, 3));
         game.play();
 
-        ArrayList<String> messagesReceived = testWriter.messagesReceived;
+        List<String> messagesReceived = testWriter.messagesReceived;
         String actualField = messagesReceived.get(messagesReceived.size() - 1);
 
         String expectedField =

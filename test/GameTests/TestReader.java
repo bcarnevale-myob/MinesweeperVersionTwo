@@ -2,14 +2,13 @@ package GameTests;
 
 import Game.Reader;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class TestReader implements Reader {
-
-    private ArrayList<String> userResponses;
+    private List<String> userResponses;
     private int callCounter = -1;
 
-    TestReader(ArrayList<String> userResponses) {
+    TestReader(List<String> userResponses) {
         this.userResponses = userResponses;
     }
 
