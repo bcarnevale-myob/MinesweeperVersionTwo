@@ -3,11 +3,11 @@ package GameTests;
 import Game.Writer;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 public class TestWriter implements Writer {
 
-    Collection<String> messagesReceived;
+    List<String> messagesReceived;
 
     TestWriter() {
         this.messagesReceived = new ArrayList<>();
