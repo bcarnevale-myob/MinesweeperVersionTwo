@@ -18,8 +18,8 @@ public class PredictableNumberGenerator implements Random {
     }
 
     @Override
-    public int nextInt(int maxAcceptedValue) {
-        this.upperBound = maxAcceptedValue;
+    public int nextInt(int maximumAcceptedValue) {
+        this.upperBound = maximumAcceptedValue;
         callCounter++;
 
         if (callCounter == 1) {

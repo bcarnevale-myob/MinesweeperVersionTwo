@@ -9,8 +9,8 @@ public class RealRandomNumberGenerator implements Random {
     }
 
     @Override
-    public int nextInt(int maxAcceptedValue) {
-        return randomNumberGenerator.nextInt(maxAcceptedValue);
+    public int nextInt(int maximumAcceptedValue) {
+        return randomNumberGenerator.nextInt(maximumAcceptedValue);
     }
 
 }
