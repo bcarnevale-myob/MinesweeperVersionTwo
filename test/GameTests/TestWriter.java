@@ -1,14 +1,15 @@
 package GameTests;
 
-import Game.IWriter;
+import Game.Writer;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class TestWriter implements IWriter {
+public class TestWriter implements Writer {
 
-    public ArrayList<String> messagesReceived;
+    List<String> messagesReceived;
 
-    public TestWriter() {
+    TestWriter() {
         this.messagesReceived = new ArrayList<>();
     }
 

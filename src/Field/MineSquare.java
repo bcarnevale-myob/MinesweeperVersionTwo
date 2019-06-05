@@ -15,5 +15,4 @@ public class MineSquare extends Square {
             return ".";
         }
     }
-
 }

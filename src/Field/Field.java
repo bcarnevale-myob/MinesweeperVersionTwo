@@ -1,14 +1,14 @@
 package Field;
 
-import MinePlacer.IMinePlacer;
+import MinePlacer.MinePlacer;
 
 public class Field {
 
     private final Square[][] field;
-    private final IMinePlacer minePlacer;
+    private final MinePlacer minePlacer;
     private final Size size;
 
-    public Field(Size size, IMinePlacer minePlacer) {
+    public Field(Size size, MinePlacer minePlacer) {
         this.minePlacer = minePlacer;
         this.field = new Square[size.getHeight()][size.getWidth()];
         this.size = size;
@@ -26,38 +26,41 @@ public class Field {
         int numberOfMinesToPlace = minePlacer.numberOfMines();
 
         for (int i = 0; i < numberOfMinesToPlace; i++) {
-            Coordinates minePosition = minePlacer.nextCoordinate();
+            Coordinate minePosition = minePlacer.nextCoordinate();
             field[minePosition.getX()][minePosition.getY()] = new MineSquare();
         }
     }
 
-    public String getPlayerField() {
+    public String getCurrentField() {
         String playerField = "";
 
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
-                Coordinates position = new Coordinates(x, y);
-                if ((squareIsAMineAt(position)) && (field[x][y].isRevealed())) {
+                Coordinate coordinate = new Coordinate(x, y);
+                if ((hasMineAt(coordinate)) && (field[x][y].isRevealed())) {
                     return getRevealedField();
                 }
                 playerField += field[x][y].toString();
             }
             playerField += "\n";
         }
+
         return playerField;
     }
 
+    // This method is only used by the tests, in the future we would find a way for this to be private and still testable
     public String getRevealedField() {
         String revealedField = "";
 
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
-                Coordinates position = new Coordinates(x, y);
-                this.revealSquare(position);
+                Coordinate coordinate = new Coordinate(x, y);
+                this.hit(coordinate);
                 revealedField += field[x][y].toString();
             }
             revealedField += "\n";
         }
+
         return revealedField;
     }
 
@@ -73,37 +76,35 @@ public class Field {
         return isEmpty;
     }
 
-    public boolean squareIsAMineAt(Coordinates coordinates) {
-        int row = coordinates.getX();
-        int col = coordinates.getY();
-        return field[row][col].isAMine();
+    public boolean hasMineAt(Coordinate coordinate) {
+
+        return field[coordinate.getX()][coordinate.getY()].isAMine();
     }
 
-    public void revealSquare(Coordinates coordinates) {
-        int row = coordinates.getX();
-        int col = coordinates.getY();
-        field[row][col].reveal();
+    public void hit(Coordinate coordinate) {
+
+        field[coordinate.getX()][coordinate.getY()].reveal();
     }
 
     private void addHintsToField() {
         for (int x = 0; x < this.size.getHeight(); x++) {
             for (int y = 0; y < this.size.getWidth(); y++) {
-                Coordinates coordinates = new Coordinates(x, y);
-                if (squareIsAMineAt(coordinates)) {
-                    increaseHintCountAround(coordinates);
+                Coordinate coordinate = new Coordinate(x, y);
+                if (hasMineAt(coordinate)) {
+                    increaseHintCountAround(coordinate);
                 }
             }
         }
     }
 
-    private void increaseHintCountAround(Coordinates coordinates) {
-        int currentX = coordinates.getX();
-        int currentY = coordinates.getY();
+    private void increaseHintCountAround(Coordinate coordinate) {
+        int currentX = coordinate.getX();
+        int currentY = coordinate.getY();
         for (int x = currentX - 1; x <= currentX + 1; x++) {
             if (!(isOutOfBounds(x, this.size.getHeight())))
                 for (int y = currentY - 1; y <= currentY + 1; y++) {
-                    if (!(isOutOfBounds(y, this.size.getWidth()))) {
-                        field[x][y].increaseHintCount();
+                    if (!isOutOfBounds(y, this.size.getWidth()) && !hasMineAt(new Coordinate(x,y))) {
+                        ((SafeSquare) field[x][y]).increaseHintCount();
                     }
                 }
         }

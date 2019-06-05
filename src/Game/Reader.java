@@ -1,6 +1,6 @@
 package Game;
 
-public interface IReader {
+public interface Reader {
 
     String prompt(String message);
 

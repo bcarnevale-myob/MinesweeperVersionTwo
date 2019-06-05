@@ -1,6 +1,6 @@
 package Game;
 
-public interface IWriter {
+public interface Writer {
 
     void write(String message);
 

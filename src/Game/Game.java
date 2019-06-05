@@ -1,21 +1,22 @@
 package Game;
 
 import Field.*;
-import MinePlacer.IRandom;
+import MinePlacer.Random;
 import MinePlacer.RandomMinePlacer;
-import MinePlacer.RealRandomNumberGenerator;
 
 public class Game {
 
-    private IReader reader;
-    private IWriter writer;
+    private Reader reader;
+    private Writer writer;
+    private Random random;
     private Field field;
     private boolean gameIsOver;
 
-    public Game(IReader reader, IWriter writer) {
+    public Game(Reader reader, Writer writer, Random random) {
 
         this.writer = writer;
         this.reader = reader;
+        this.random = random;
         this.gameIsOver = false;
 
         welcomeMessage();
@@ -37,16 +38,12 @@ public class Game {
         return new Size(height, width);
     }
 
-    public void setUpGame(IRandom random, Size fieldSize) {
+    public void setUpGame(Size size) {
 
-        this.field = new Field(fieldSize, new RandomMinePlacer(fieldSize, random));
+        this.field = new Field(size, new RandomMinePlacer(size, this.random));
 
-        this.writer.write(field.getPlayerField());
+        this.writer.write(field.getCurrentField());
 
-    }
-
-    public void setUpGame() {
-        setUpGame(new RealRandomNumberGenerator(), getUserInputForFieldSize());
     }
 
     public void play() {
@@ -57,15 +54,15 @@ public class Game {
         int userHitX = Integer.parseInt(userHitEntrySplit[0]);
         int userHitY = Integer.parseInt(userHitEntrySplit[1]);
 
-        Coordinates userHitCoordinates = new Coordinates(userHitX, userHitY);
+        Coordinate userHitCoordinates = new Coordinate(userHitX, userHitY);
 
-        field.revealSquare(userHitCoordinates);
+        field.hit(userHitCoordinates);
 
-        writer.write(field.getPlayerField());
+        writer.write(field.getCurrentField());
 
-        if(field.squareIsAMineAt(userHitCoordinates)) {
+        if(field.hasMineAt(userHitCoordinates)) {
             writer.write("You hit a mine! GAME OVER.");
-            writer.write(field.getRevealedField());
+            writer.write(field.getCurrentField());
             this.gameIsOver = true;
         }
 

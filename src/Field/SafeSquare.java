@@ -2,6 +2,8 @@ package Field;
 
 public class SafeSquare extends Square {
 
+    private int hintCount = 0;
+
     public boolean isAMine() {
         return false;
     }
@@ -14,4 +16,11 @@ public class SafeSquare extends Square {
         }
     }
 
+    void increaseHintCount() {
+        hintCount++;
+    }
+
+    private int getHintCount() {
+        return hintCount;
+    }
 }

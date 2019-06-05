@@ -1,30 +1,30 @@
 package GameTests;
 
-import Field.Coordinates;
+import Field.Coordinate;
 import Field.Size;
 import Game.Game;
 import MinePlacerTests.PredictableNumberGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GameTest {
+class GameTest {
 
     @Test
-    public void whenANewGameIsStartedTheExpectedFieldIsProduced() {
-
-        ArrayList<String> userResponses = new ArrayList<>();
+    void whenANewGameIsStartedTheExpectedFieldIsProduced() {
+        List<String> userResponses = new ArrayList<>();
         userResponses.add("0,0");
 
         TestWriter testWriter = new TestWriter();
-        Game game = new Game(new TestReader(userResponses), testWriter);
-        Coordinates[] minePositions = {new Coordinates(0,0), new Coordinates(1,0), new Coordinates(0,1)};
-        game.setUpGame(new PredictableNumberGenerator(3, minePositions), new Size(4, 3));
+        Coordinate[] minePositions = {new Coordinate(0,0), new Coordinate(1,0), new Coordinate(0,1)};
+        Game game = new Game(new TestReader(userResponses), testWriter, new PredictableNumberGenerator(3, minePositions));
+        game.setUpGame(new Size(4, 3));
         game.play();
 
-        ArrayList<String> messagesReceived = testWriter.messagesReceived;
+        List<String> messagesReceived = testWriter.messagesReceived;
         String actualField = messagesReceived.get(messagesReceived.size() - 1);
 
         String expectedField =
